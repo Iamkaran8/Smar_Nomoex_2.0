@@ -1,8 +1,10 @@
+import { useState } from "react";
 import Background_img from "../../../assets/Singup_Bg.png";
 import Background_img_mbl from "../../../assets/singup_mbl_bg.png";
 import { MainFooter } from "../../Common/MainFooter";
 import { RegRightSideData } from "../RegRightSideData";
 import { SigninForm } from "../SignInModule/SigninForm";
+import { OtpValidation } from "./OtpValidation";
 import { PassWordResetForm } from "./PassWordResetForm";
 
 
@@ -10,6 +12,8 @@ import { PassWordResetForm } from "./PassWordResetForm";
 
 
 export const PassWordResetModule = ()=>{
+
+  const [isSend, SetIsSend] = useState<boolean>(false)
     return(
         <>
         <div className="dark:bg-black dark:text-white min-h-screen   relative">
@@ -34,7 +38,11 @@ export const PassWordResetModule = ()=>{
           {/* Password Reset Form Form */}
           <div className="dark:bg-black flex flex-col-reverse md:flex-col-reverse   md:flex-col lg:flex-row justify-center items-center min-h-screen container md:container-none mx-auto h-full  flex justify-center items-center ">
             <div className="dark:bg-black rounded-t-[20px] bg-white  px-5 w-[100%] lg:w-[50%]  md:w-[100%] lg:w-[50%] md:px-[8%] text-center py-10 z-10 ">
-              <PassWordResetForm/>
+              {
+                isSend ?  (<OtpValidation/>) : <PassWordResetForm/>
+              }
+              
+              
             </div>
             <div className="md:w-[70%] lg:w-[50%] w-[50%] py-3 relative">
               <RegRightSideData />

@@ -2,9 +2,6 @@ import { SignUpForm } from "./SignUpForm";
 import Background_img from "../../../assets/Singup_Bg.png";
 import Background_img_mbl from "../../../assets/singup_mbl_bg.png";
 import { RegRightSideData } from "../RegRightSideData";
-import { MainFooter } from "../../Common/MainFooter";
-
-
 
 export const SignUpModule = () => {
   return (
