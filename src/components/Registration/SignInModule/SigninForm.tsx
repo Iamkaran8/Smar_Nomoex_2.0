@@ -53,7 +53,8 @@ export const SigninForm = () => {
 
   return (
     <>
-      <div className=" text-left ">
+    <div className="dark:bg-black rounded-t-[20px] bg-white  px-5 w-[100%] lg:w-[50%]  md:w-[100%] lg:w-[50%] md:px-[8%] text-center py-10 z-10 ">
+      <div className="text-left ">
         <img
           className=" hidden md:block py-5 h-[85px]"
           src={Nomoex_Logo}
@@ -138,6 +139,7 @@ export const SigninForm = () => {
           </p>
         </div>
         <ToastContainer />
+      </div>
       </div>
     </>
   );
