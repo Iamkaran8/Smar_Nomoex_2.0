@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { Home } from "../pages/Home"
 import { SignUpModule } from "../components/Registration/SignUpModule/SignUpModule"
+import { SignInModule } from "../components/Registration/SignInModule/SignInModule"
 
 
 export const Routing = () =>{
@@ -9,6 +10,7 @@ export const Routing = () =>{
             <Routes>
                 <Route path="/" element={< Home/>}/>
                 <Route path="signup" element={<SignUpModule/>}/>
+                <Route path="signin" element={<SignInModule/>}/>
             </Routes>
         </BrowserRouter>
     )

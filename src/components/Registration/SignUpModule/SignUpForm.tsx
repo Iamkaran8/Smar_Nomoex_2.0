@@ -5,6 +5,9 @@ import { CountryDropDown } from "./CountryDropDown";
 import { MdMailOutline } from "react-icons/md";
 import { ToastContainer, toast } from "react-toastify";
 import { IoEye, IoEyeOff } from "react-icons/io5";
+import { GoEye, GoEyeClosed } from "react-icons/go";
+import { Link } from "react-router-dom";
+import { CountryMobileCode } from "./CountryMobileCode";
 
 interface UserDataType {
   name: string;
@@ -12,6 +15,7 @@ interface UserDataType {
   email: string;
   country: string;
   mobileNo: string;
+  countrycode : string
 }
 
 export const SignUpForm = () => {
@@ -28,6 +32,7 @@ export const SignUpForm = () => {
     email: "",
     country: "",
     mobileNo: "",
+    countrycode : ""
   });
 
   // Form Submission
@@ -91,7 +96,7 @@ export const SignUpForm = () => {
               id="name"
               className="border-[1px] border-Soft_Gray dark:border-Soft_Gray_20 dark:bg-black rounded-[8px] h-[64px] px-4 placeholder:text-gray-400 dark:focus:border-Bright_Blue focus:outline-none focus:border-Bright_Blue  text-[14px] font-medium "
               type="text"
-              placeholder=""
+              placeholder="Full Name"
               value={userData.name}
               onChange={handleChange}
             />
@@ -108,13 +113,13 @@ export const SignUpForm = () => {
               id="create_pass"
               className="border-[1px] border-Soft_Gray dark:focus:border-Bright_Blue dark:border-Soft_Gray_20 dark:bg-black rounded-[8px] h-[64px] px-4 placeholder:text-gray-400 focus:outline-none focus:border-Bright_Blue text-[14px] font-medium "
               type={isShow ? "password" : "text"}
-              placeholder=""
+              placeholder="Type Your Password"
             />
             <span
               onClick={() => showPass()}
               className="absolute cursor-pointer right-[3%] top-[58%] h-[18px] w-[18px]"
             >
-              {isShow ? <IoEyeOff /> : <IoEye />}
+              {isShow ? <GoEyeClosed /> : <GoEye />}
             </span>
           </div>
 
@@ -128,7 +133,7 @@ export const SignUpForm = () => {
               id="email"
               className=" dark:focus:border-Bright_Blue border-[1px] border-Soft_Gray dark:border-Soft_Gray_20 dark:bg-black rounded-[8px] h-[64px] px-4 placeholder:text-gray-400 focus:outline-none focus:border-Bright_Blue text-[14px] font-medium "
               type="email"
-              placeholder=""
+              placeholder="Email"
               onChange={handleChange}
             />
             <span className="absolute right-[3%]  top-[58%] h-[18px] w-[18px] dark:text-white text-black">
@@ -154,15 +159,22 @@ export const SignUpForm = () => {
             <label htmlFor="Mobile_num" className="font-bold ml-[2px]">
               Mobile No.
             </label>
-            <input
-              name="mobileNo"
-              id="Mobile_num"
-              className=" border-[1px] border-Soft_Gray dark:border-Soft_Gray_20 dark:bg-black rounded-[8px] h-[64px] px-4 placeholder:text-gray-400 focus:outline-none focus:border-Bright_Blue dark:focus:border-Bright_Blue text-[14px] font-medium "
-              type="text"
-              placeholder=""
-              value={userData.mobileNo}
-              onChange={handleChange}
-            />
+            <div className="flex w-[100%] gap-1">
+              <div className=" w-[25%] flex justify-center items-center">
+                <CountryMobileCode  userData={userData}/>
+              </div>
+              <div className="w-[100%]">
+                <input
+                  name="mobileNo"
+                  id="Mobile_num"
+                  className=" border-[1px] border-Soft_Gray dark:border-Soft_Gray_20 dark:bg-black rounded-[8px] w-[100%] h-[64px] px-4 placeholder:text-gray-400 focus:outline-none focus:border-Bright_Blue dark:focus:border-Bright_Blue text-[14px] font-medium "
+                  type="text"
+                  placeholder="Mobile Number"
+                  value={userData.mobileNo}
+                  onChange={handleChange}
+                />
+              </div>
+            </div>
           </div>
 
           {/* Submit Button */}
@@ -176,7 +188,9 @@ export const SignUpForm = () => {
         <div className=" text-center py-[25px] flex  flex-col gap-[15px]">
           <p className="dark:text-white text-black text-[14px] font-bold">
             Already registered?{" "}
-            <span className="text-Bright_Blue font-bold">Sign In</span>
+            <span className="text-Bright_Blue font-bold">
+              <Link to={"/Signin"}>Sign In</Link>
+            </span>
           </p>
           <p className="dark:text-white text-black text-[14px] font-bold">
             By continue, you agree to our{" "}

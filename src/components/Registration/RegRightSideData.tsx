@@ -1,11 +1,8 @@
-import MOckUp from "../../../assets/Status_Mockup.png";
-import Nomoex_logo from "../../../assets/NomoexFav_icon.svg";
-import { TextSlider } from "./TextSlider";
-
+import MOckUp from "../../assets/Status_Mockup.png";
+import Nomoex_logo from "../../assets/NomoexFav_icon.svg";
+import { Slider } from "./Slider";
 
 export const RegRightSideData = () => {
-
-
   return (
     <>
       <div className="flex justify-center items-center flex-col gap-[30px] py-[40px] ">
@@ -15,9 +12,9 @@ export const RegRightSideData = () => {
           src={Nomoex_logo}
           alt="nomoex_logo"
         />
-        <div className="text-center w-[100%] hidden md:flex">
-          <TextSlider />
-        </div>
+
+        <Slider />
+
         <div className="text-center hidden md:hidden lg:block">
           <h3 className="text-white text-[18px] font-extrabold">
             Waiapi Karaka
@@ -27,7 +24,6 @@ export const RegRightSideData = () => {
           </h5>
         </div>
       </div>
-
     </>
   );
 };

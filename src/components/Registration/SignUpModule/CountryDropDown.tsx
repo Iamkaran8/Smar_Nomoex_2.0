@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import countryWithCode from "../../Utilities/countryWIthCode";
+import '../../../App.css'
 interface Props {
   selectedCountrys: string;
   setUserData: any;
@@ -30,8 +31,9 @@ export const CountryDropDown = ({ selectedCountrys, setUserData }: Props) => {
     setIsOpen(true);
   };
 
-  const handleSelect = (name: string) => {
+  const handleSelect = (name: string , code : string) => {
     setUserData((prev: any) => ({ ...prev, country: name })); // Update userData first
+    setUserData((prev: any) => ({ ...prev, countrycode: code })); // Update userData first
     setInput(name); // Immediately update input field
     // setSelectedCountry(name);
     setIsOpen(false);
@@ -68,13 +70,13 @@ export const CountryDropDown = ({ selectedCountrys, setUserData }: Props) => {
         onFocus={() => setIsOpen(true)}
       />
       {isOpen && (
-        <div className="absolute dark:bg-black w-full mt-1 border-[1px] border-Soft_Gray max-h-40 overflow-y-auto bg-white rounded-md shadow-lg">
+        <div className={` custom-scrollbar absolute dark:bg-black w-full mt-1 border-[1px] border-Soft_Gray max-h-40 overflow-y-auto bg-white rounded-md shadow-lg ${isOpen ? "scale-y-100 opacity-100" : "scale-y-0 opacity-0"} `}>
           {filteredCountries.length > 0 ? (
             filteredCountries.map((country) => (
               <p
                 key={country.code}
                 className="px-4 py-2 cursor-pointer hover:bg-Soft_Gray_20"
-                onClick={() => handleSelect(country.name)}
+                onClick={() => handleSelect(country.name ,country.dial_code)}
               >
                 {country.name}
               </p>
