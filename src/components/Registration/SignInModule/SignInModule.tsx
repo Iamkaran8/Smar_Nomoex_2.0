@@ -36,9 +36,6 @@ export const SignInModule = () => {
           </div>
         </div>
       </div>
-      
-      {/* Footer */}
-      <MainFooter />
     </>
   );
 };
