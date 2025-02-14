@@ -13,7 +13,7 @@ import { PassWordResetForm } from "./PassWordResetForm";
 
 export const PassWordResetModule = ()=>{
 
-  const [isSend, SetIsSend] = useState<boolean>(false)
+  const [isSend, SetIsSend] = useState<boolean>(true)
     return(
         <>
         <div className="dark:bg-black dark:text-white min-h-screen   relative">
@@ -51,7 +51,7 @@ export const PassWordResetModule = ()=>{
         </div>
         
         {/* Footer */}
-        <MainFooter />
+        {/* <MainFooter /> */}
       </>
     )
 }

@@ -1,11 +1,18 @@
+import OTPInput from "react-otp-input";
 import Nomoex_Logo from "../../../assets/Nomoex_Full_logo.svg";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-
-
+import { useState } from "react";
 
 export const OtpValidation = () => {
-  
+  const [otp, setOtp] = useState("");
+  const handleChange = (value: any) => {
+    // Allow only numeric values
+    if (/^\d*$/.test(value)) {
+      setOtp(value);
+    }
+  };
+
   return (
     <>
       <div className=" text-left  ">
@@ -19,26 +26,32 @@ export const OtpValidation = () => {
           karansenthil@gmail.com
         </h2>
 
-        <form
-          className="lg:w-[100%] md:w-[100%] flex flex-col gap-5 mt-5"
-        >
+        <form className="lg:w-[100%] md:w-[100%] flex flex-col gap-5 mt-5">
+
           {/* Otp Verification Field*/}
-          <div className="flex w-[70%]   gap-5 relative ">
-            <input
-              className="w-[25%] bg-Soft_Gray dark:focus:border-Bright_Blue border-[1px] border-Soft_Gray dark:border-Soft_Gray_20 dark:bg-black rounded-[8px] h-[64px] px-4 placeholder:text-gray-400 focus:outline-none focus:border-Bright_Blue text-[14px] font-medium "
-              type="text"
-            />
-            <input
-              className="w-[25%] bg-Soft_Gray dark:focus:border-Bright_Blue border-[1px] border-Soft_Gray dark:border-Soft_Gray_20 dark:bg-black rounded-[8px] h-[64px] px-4 placeholder:text-gray-400 focus:outline-none focus:border-Bright_Blue text-[14px] font-medium "
-              type="text"
-            />
-            <input
-              className=" w-[25%] bg-Soft_Gray dark:focus:border-Bright_Blue border-[1px] border-Soft_Gray dark:border-Soft_Gray_20 dark:bg-black rounded-[8px] h-[64px] px-4 placeholder:text-gray-400 focus:outline-none focus:border-Bright_Blue text-[14px] font-medium "
-              type="text"
-            />
-            <input
-              className="w-[25%] bg-Soft_Gray dark:focus:border-Bright_Blue border-[1px] border-Soft_Gray dark:border-Soft_Gray_20 dark:bg-black rounded-[8px] h-[64px] px-4 placeholder:text-gray-400 focus:outline-none focus:border-Bright_Blue text-[14px] font-medium "
-              type="text"
+          <div className="flex w-[100%]   gap-5 relative ">
+            <OTPInput
+              value={otp}
+              onChange={handleChange} // Custom validation
+              numInputs={4}
+              shouldAutoFocus
+              // isInputNum // Ensures numeric keyboard on mobile
+              renderSeparator={<span>&nbsp;</span>}
+              renderInput={(props) => (
+                <input
+                  {...props}
+                  type="text"
+                  inputMode="numeric"
+                  pattern="[0-9]*"
+                  style={{ width: "64px" }}
+                  className="text-center bg-Soft_Gray dark:focus:border-Bright_Blue border-[1px] border-Soft_Gray dark:border-Soft_Gray_20 dark:bg-black rounded-[8px] h-[64px] w-[64px] px-4 placeholder:text-gray-400 focus:outline-none focus:border-Bright_Blue text-[14px] font-medium"
+                  onKeyDown={(e) => {
+                    if (!/^\d$/.test(e.key) && e.key !== "Backspace") {
+                      e.preventDefault(); // Prevent non-numeric input
+                    }
+                  }}
+                />
+              )}
             />
           </div>
           <div className="flex py-3 gap-2 relative">
