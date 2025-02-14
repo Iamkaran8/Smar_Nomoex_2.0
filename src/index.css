@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  position: relative;
+  font-family: "Inter", serif;
+  font-optical-sizing: auto;
+  padding: 0%;
+  margin: 0%;
+}
+
+h1 {
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 50.83px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 28px;
+  line-height: 34px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+h3{
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+}
+p{
+  font-size: 16px;
+  line-height: 24px;
+}
+/* img{
+  max-width: fit-content;
+} */
+
+
+/* container */
+.cont{
+  @apply mx-auto container px-[10px];
+}
+
+
+@layer utilities {
+  /* Custom Styles for Tablet (640px - 1024px) */
+  @media(max-width: 1024px) {
+    h1 {
+      font-size: 30px !important;
+      line-height: 40px !important;
+    }
+    h2 {
+      font-size: 24px!important;
+      line-height: 29.05px!important;
+    }
+    h3{
+      font-size: 20px!important;
+    }
+  }
+
+  /* Custom Styles for Mobile (max-width: 640px) */
+  @media (max-width: 640px) {
+    .subscription input {
+      height: 50px;
+    }
+    .features{
+      display: none;
+    }
+    .portfolio_bg{
+      left: -50px!important;
+    }
+  }
+}
