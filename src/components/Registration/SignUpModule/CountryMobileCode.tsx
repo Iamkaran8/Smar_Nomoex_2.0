@@ -1,12 +1,6 @@
 import "../../../App.css";
-interface UserDataType {
-  name: string;
-  password: string;
-  email: string;
-  country: string;
-  mobileNo: string;
-  countrycode: string;
-}
+import { UserDataType } from "../../../model";
+
 
 interface Props {
   userData: UserDataType;

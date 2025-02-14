@@ -6,7 +6,7 @@ import { useState } from "react";
 
 export const OtpValidation = () => {
   const [otp, setOtp] = useState("");
-  const handleChange = (value: any) => {
+  const handleChange = (value: string) => {
     // Allow only numeric values
     if (/^\d*$/.test(value)) {
       setOtp(value);
@@ -23,8 +23,7 @@ export const OtpValidation = () => {
             alt="Nomoex_Icon"
           />
           <h2 className=" text-[35px] font-bold leading-[45px]  pt-2">
-            Enter OTP Send on 
-            karansenthil@gmail.com
+            Enter OTP Send on karansenthil@gmail.com
           </h2>
 
           <form className="lg:w-[100%] md:w-[100%] flex flex-col gap-5 mt-5">

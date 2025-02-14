@@ -1,22 +1,13 @@
 import Nomoex_Logo from "../../../assets/Nomoex_Full_logo.svg";
-import Show_Icon from "../../../assets/Show_iCon.svg";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { CountryDropDown } from "./CountryDropDown";
 import { MdMailOutline } from "react-icons/md";
 import { ToastContainer, toast } from "react-toastify";
-import { IoEye, IoEyeOff } from "react-icons/io5";
 import { GoEye, GoEyeClosed } from "react-icons/go";
 import { Link } from "react-router-dom";
 import { CountryMobileCode } from "./CountryMobileCode";
+import { UserDataType } from "../../../model";
 
-interface UserDataType {
-  name: string;
-  password: string;
-  email: string;
-  country: string;
-  mobileNo: string;
-  countrycode: string;
-}
 
 export const SignUpForm = () => {
   const [isShow, setIsShow] = useState<boolean>(true);

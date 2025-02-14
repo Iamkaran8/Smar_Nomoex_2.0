@@ -19,3 +19,13 @@ export interface FeatureProps {
 export interface ThemeState {
     isDark: boolean;
 }
+
+
+export interface UserDataType {
+    name: string;
+    password: string;
+    email: string;
+    country: string;
+    mobileNo: string;
+    countrycode: string;
+  }
