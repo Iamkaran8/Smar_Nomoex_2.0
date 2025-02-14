@@ -11,7 +11,7 @@ export const MainFooter = () => {
     const isDark = useSelector((state: RootState) => state.theme.isDark);
 
     return (
-        <div className="border-t border-Soft_Gray_20">
+        <div className="border-t border-Soft_Gray_20 dark:bg-black">
             <div className="cont">
                 <div className="flex flex-col lg:flex-row gap-5 lg:gap-0 pt-14 lg:pt-20">
                     <div className=" w-full lg:w-1/3 flex justify-between flex-col md:flex-row lg:flex-col lg:items-start items-center text-center md:text-start">

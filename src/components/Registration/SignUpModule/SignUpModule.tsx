@@ -2,13 +2,14 @@ import { SignUpForm } from "./SignUpForm";
 import Background_img from "../../../assets/Singup_Bg.png";
 import Background_img_mbl from "../../../assets/singup_mbl_bg.png";
 import { RegRightSideData } from "../RegRightSideData";
+import { MainFooter } from "../../Common/MainFooter";
 
 
 
 export const SignUpModule = () => {
   return (
     <>
-      <div className="dark:bg-black dark:text-white min-h-screen   relative">
+      <div className="dark:bg-black dark:text-white  min-h-screen   relative">
         <div
           className="w-[100%] hidden md:block top-0 right-0 absolute h-full lg:w-1/2 md:w-[100%]"
           style={{
@@ -37,7 +38,10 @@ export const SignUpModule = () => {
           </div>
         </div>
       </div>
-      
+
+
+      {/* Footer */}
+      <MainFooter/>
     </>
   );
 };
