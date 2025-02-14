@@ -5,6 +5,7 @@ import { SignUpForm } from "../../components/Registration/SignUpModule/SignUpFor
 export const SignUp = () => {
   return (
     <>
+    
       <div className="dark:bg-black dark:text-white  min-h-screen   relative">
         {/* {Background Images} */}
         <BackgroundImage />

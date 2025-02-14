@@ -1,11 +1,15 @@
 import useScreen from "../../customHooks/useScreen";
-
+import btc from '../../assets/Dummy_images/Bitcoin.svg'
+import Ethereum from '../../assets/Dummy_images/Ethereum.svg'
+import xrp from '../../assets/Dummy_images/Xrp.svg'
+import litecoin from '../../assets/Dummy_images/Litecoin.svg'
+import Tether from '../../assets/Dummy_images/Tether.svg'
 const marketData = [
-    {  rank: 1, name: "Bitcoin", symbol: "BTC", price: "$23,869.5", change: "+1.53%", icon: "🟠" },
-    {  rank: 2, name: "Ethereum", symbol: "ETH", price: "$1400.36", change: "+1.27%", icon: "🔷" },
-    {  rank: 3, name: "XRP", symbol: "XRP", price: "$0.33398", change: "+10.93%", icon: "⚫" },
-    {  rank: 4, name: "Litecoin", symbol: "LTC", price: "$46.521", change: "+4.98%", icon: "⚪" },
-    {  rank: 5, name: "Tether", symbol: "USDT", price: "$0.99655", change: "-0.25%", icon: "🟢" },
+    {  rank: 1, name: "Bitcoin", symbol: "BTC", price: "$23,869.5", change: "+1.53%", icon: btc },
+    {  rank: 2, name: "Ethereum", symbol: "ETH", price: "$1400.36", change: "+1.27%", icon: Ethereum },
+    {  rank: 3, name: "XRP", symbol: "XRP", price: "$0.33398", change: "+10.93%", icon: xrp },
+    {  rank: 4, name: "Litecoin", symbol: "LTC", price: "$46.521", change: "+4.98%", icon: litecoin },
+    {  rank: 5, name: "Tether", symbol: "USDT", price: "$0.99655", change: "-0.25%", icon: Tether },
 ];
 
 
@@ -21,8 +25,8 @@ export const ExploreMarket = () => {
                     {marketData.map((coin, index) => (
                         <div key={index} className="py-4 px-3 rounded-lg flex justify-between items-center border border-gray-300">
                             <div className="flex items-center gap-2">
-                                <span className="text-xl">{coin.icon}</span>
-                                <h3 className="font-semibold">{coin.name} <span className="font-light">{coin.symbol}</span></h3>
+                                <img src={coin.icon}  alt={coin.name}/>
+                                <h3 className="font-semibold  ">{coin.name} <span className="font-light text-[14px]">{coin.symbol}</span></h3>
                             </div>
                             <div className="flex gap-1">
                                 <p className={`${coin.change.startsWith("+") ? "text-green-500" : "text-red-500"}`}>{coin.change}</p>
@@ -48,7 +52,7 @@ export const ExploreMarket = () => {
                             {marketData.map((coin, index) => (
                                 <tr key={index} className="border-b border-gray-300">
                                     <td className="p-5 flex items-center gap-2">
-                                    {coin.rank}  {coin.icon} <span className="font-bold">{coin.name}</span> <span className="text-gray-500">{coin.symbol}</span>
+                                    {coin.rank}  <img className="px-2" src={coin.icon} alt={coin.name} /> <span className="font-bold">{coin.name}</span> <span className="text-gray-500">{coin.symbol}</span>
                                     </td>
                                     <td className="p-5">{coin.price}</td>
                                     <td className={`p-2 ${coin.change.startsWith("+") ? "text-green-500" : "text-red-500"}`}>{coin.change}</td>
