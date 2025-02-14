@@ -39,7 +39,7 @@ export const TextSlider = () => {
           <div
             key={i}
             className={`h-[6px] w-[6px] rounded-full transition-all duration-500 ${
-              i === index ? "bg-white w-[23px]" : "bg-white"
+              i === index ? "bg-white w-[25px]" : "bg-white"
             }`}
           />
         ))}
