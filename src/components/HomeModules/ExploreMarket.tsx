@@ -13,7 +13,7 @@ export const ExploreMarket = () => {
     const { isMobile } = useScreen(); // No need to pass breakpoints manually
 
     return (
-        <div className="text-center">
+        <div className="text-center cont">
             <h4 className="text-lg font-bold mb-4">Explore the latest market updates</h4>
 
             {isMobile ? (

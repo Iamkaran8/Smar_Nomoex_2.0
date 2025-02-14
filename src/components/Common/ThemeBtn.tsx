@@ -9,8 +9,8 @@ export const ThemeBtn = () =>{
     const isDark = useSelector((state:RootState)=>state.theme.isDark)
     const dispatch:AppDispatch = useDispatch();
     return(
-        <button className="border border_Soft_Gray_20 rounded-md p-3" onClick={()=>dispatch(toggleTheme())}>
-            {isDark ? <CiSun size={24}/> : <GoMoon size={24}/>}
+        <button className={`border border-[#CFDBD5] dark:border-Soft_Gray_20  m-3 rounded-md p-3 `} onClick={()=>dispatch(toggleTheme())}>
+            {isDark ? <CiSun size={20}/> : <GoMoon size={20}/>}
         </button>
     )
 }
