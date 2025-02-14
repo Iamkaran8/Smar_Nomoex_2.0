@@ -80,7 +80,7 @@ export const FeaturedPosts = () => {
                 {/* Article Cards Section */}
                 <div className="flex justify-center gap-5 pt-5 md:pt-10">
                     {articles.slice(0, itemsToShow).map((article, index) => (
-                        <div key={index} className="bg-white dark:bg-black text-start rounded-lg w-full md:w-1/2 lg:w-1/3 p-5 border border-[#CFDBD5] dark:border-[rgba(207,219,213,0.2)]">
+                        <div key={index} className="bg-white dark:bg-black text-start rounded-lg w-full md:w-1/2 lg:w-1/3 p-5 border border-[#CFDBD5] dark:border-Soft_Gray_20">
 
                             {/* Background Image */}
                             <div className="h-48 rounded-lg p-3 text-end" style={{ backgroundImage: `url(${article.image})`, backgroundSize: "cover", backgroundPosition: "center", }} >

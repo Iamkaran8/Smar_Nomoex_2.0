@@ -21,7 +21,7 @@ export const HeroSection = () => {
     }, []);
 
     return (
-        <>
+        <div className='cont'>
             {isMobile ? (
                 <>
                     <img className="w-[75%] md:w-[30%] absolute -z-10 top-0 right-0" src={isDark ? mobilepreview_mb_dark : mobilepreview_mb} alt="Mobile Preview Light" />
@@ -43,6 +43,6 @@ export const HeroSection = () => {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }

@@ -44,3 +44,9 @@ export const Footerurls = [
         ]
     }
 ];
+
+export const copyrighturl = [
+    { name: "Privacy Policy", url: "/privacy-policy" },
+    { name: "License", url: "/liscence" },
+    { name: "API", url: "api" },
+]
