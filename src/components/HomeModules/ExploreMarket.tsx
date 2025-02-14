@@ -4,6 +4,7 @@ import Ethereum from '../../assets/Dummy_images/Ethereum.svg'
 import xrp from '../../assets/Dummy_images/Xrp.svg'
 import litecoin from '../../assets/Dummy_images/Litecoin.svg'
 import Tether from '../../assets/Dummy_images/Tether.svg'
+import { HiDotsVertical } from "react-icons/hi";
 const marketData = [
     {  rank: 1, name: "Bitcoin", symbol: "BTC", price: "$23,869.5", change: "+1.53%", icon: btc },
     {  rank: 2, name: "Ethereum", symbol: "ETH", price: "$1400.36", change: "+1.27%", icon: Ethereum },
@@ -58,8 +59,8 @@ export const ExploreMarket = () => {
                                     <td className={`p-2 ${coin.change.startsWith("+") ? "text-green-500" : "text-red-500"}`}>{coin.change}</td>
                                     <td className="p-5">-</td>
                                     <td className="p-5">-</td>
-                                    <td className="p-5">
-                                        <button className="bg-gray-800 px-3 py-1 rounded-lg text-white">Trade</button>
+                                    <td className="p-5 ">
+                                        <button className="bg-gray-800 px-3 py-1 rounded-lg text-white dark:border-[1px] dark:border-Soft_Gray_20 dark:bg-black text-[14px]">Trade</button>
                                     </td>
                                 </tr>
                             ))}
