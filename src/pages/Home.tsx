@@ -11,7 +11,6 @@ export const Home = () => {
     return (
         <>
             <div className="dark:bg-black dark:text-white relative dark:z-10">
-                {/* <Navbar /> */}
                 <HeroSection />
                 <ExploreMarket/>
                 <PortfolioOverview />
