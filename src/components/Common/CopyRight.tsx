@@ -20,7 +20,7 @@ export const CopyRight = () => {
                                 copyrighturl.length > 0 && (
                                     <li className="font-semibold cursor-pointer">
                                         <Link to={copyrighturl[0].url}>
-                                        <h4>{copyrighturl[0].name}</h4>
+                                        <h4 className="flex gap-2 items-center">{copyrighturl[0].name}</h4>
                                         </Link>
                                     </li>
                                 )
