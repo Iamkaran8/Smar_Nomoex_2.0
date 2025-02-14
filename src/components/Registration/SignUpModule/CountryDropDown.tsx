@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import countryWithCode from "../../Utilities/countryWIthCode";
-import '../../../App.css'
+import "../../../App.css";
 
 interface Props {
   selectedCountrys: string;
@@ -11,14 +11,14 @@ export const CountryDropDown = ({ selectedCountrys, setUserData }: Props) => {
   const [input, setInput] = useState<string>(selectedCountrys);
   const [filteredCountries, setFilteredCountries] = useState(countryWithCode);
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  
+
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Handle input change
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const searchValue = e.target.value;
     setInput(searchValue);
-    
+
     if (searchValue.trim() === "") {
       setUserData((prev: any) => ({ ...prev, country: "" }));
     }
@@ -40,14 +40,17 @@ export const CountryDropDown = ({ selectedCountrys, setUserData }: Props) => {
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false);
       }
     };
 
     setInput(selectedCountrys);
     document.addEventListener("mousedown", handleClickOutside);
-    
+
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -63,7 +66,7 @@ export const CountryDropDown = ({ selectedCountrys, setUserData }: Props) => {
         value={input}
         onFocus={() => setIsOpen(true)}
       />
-      
+
       {/* Dropdown with animation */}
       <div
         className={`custom-scrollbar absolute w-full mt-1 border-[1px] border-Soft_Gray max-h-40 overflow-y-auto bg-white dark:bg-black rounded-md shadow-lg transition-all duration-300 ease-in-out origin-top ${
