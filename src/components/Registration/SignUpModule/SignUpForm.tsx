@@ -1,27 +1,29 @@
 import Nomoex_Logo from "../../../assets/Nomoex_Full_logo.svg";
+import Email_icon from "../../../assets/Email.svg";
+import Email_icon_White from "../../../assets/mail_white.svg";
 import Show_Icon from "../../../assets/Show_iCon.svg";
 import { useEffect, useState } from "react";
 import { CountryDropDown } from "./CountryDropDown";
 import { MdMailOutline } from "react-icons/md";
-import { ToastContainer, toast } from "react-toastify";
-import { IoEye, IoEyeOff } from "react-icons/io5";
-
-interface UserDataType {
-  name: string;
-  password: string;
-  email: string;
-  country: string;
-  mobileNo: string;
-}
 
 export const SignUpForm = () => {
-  const [isShow, setIsShow] = useState<boolean>(true);
+  const [isShow, setIsShow] = useState<boolean>(false);
+  const [isSubmited, setSubmited] = useState<boolean>(false);
+
+  const [isDisable, setDisable] = useState<boolean>(true);
 
   const showPass = () => {
     setIsShow((prev) => (prev = !prev));
   };
 
-  //User Form Data
+  interface UserDataType {
+    name: string;
+    password: string;
+    email: string;
+    country: string;
+    mobileNo: string;
+  }
+
   const [userData, setUserData] = useState<UserDataType>({
     name: "",
     password: "",
@@ -30,43 +32,41 @@ export const SignUpForm = () => {
     mobileNo: "",
   });
 
-  // Form Submission
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    //Input Validations
-    let isValid = true;
-    if (!userData.name.match(/^[a-zA-Z0-9]+$/)) {
-      toast.error("Enter a Valid Username");
-      isValid = false;
-    }
-    if (!userData.password.match(/^[a-zA-Z0-9]+$/)) {
-      toast.error("Enter a Valid Password");
-      isValid = false;
-    }
-    if (!userData.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
-      toast.error("Enter a Valid Email Address");
-      isValid = false;
-    }
-    if (userData.country === "") {
-      toast.error("Enter a Valid Country");
-      isValid = false;
-    }
-    if (!userData.mobileNo.match(/^\d{10}$/)) {
-      toast.error("Enter a Valid 10-digit Mobile Number");
-      isValid = false;
+    setSubmited(true);
+    if (
+      userData.name ||
+      userData.password ||
+      userData.email ||
+      userData.country ||
+      userData.mobileNo === ""
+    ) {
+      setDisable(false);
+    } else {
+      setDisable(true);
     }
 
-    if (!isValid) return;
-
-    console.log("Form submitted successfully:", userData);
+    setSubmited(true);
+    console.log(userData);
   };
 
-  //User Data Storing
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
+
     setUserData((prev) => ({ ...prev, [name]: value }));
   };
+
+  useEffect(() => {
+    const isFormIncomplete =
+      !userData.name ||
+      !userData.password ||
+      !userData.email ||
+      !userData.country ||
+      !userData.mobileNo;
+
+    setDisable(isFormIncomplete); // Disable when any field is empty
+  }, [userData]);
 
   return (
     <>
@@ -89,12 +89,19 @@ export const SignUpForm = () => {
             <input
               name="name"
               id="name"
-              className="border-[1px] border-Soft_Gray dark:border-Soft_Gray_20 dark:bg-black rounded-[8px] h-[64px] px-4 placeholder:text-gray-400 dark:focus:border-Bright_Blue focus:outline-none focus:border-Bright_Blue  text-[14px] font-medium "
+              className="border-[1px] border-Soft_Gray dark:border-Soft_Gray_20 dark:bg-Black rounded-[8px] h-[64px] px-4 placeholder:text-gray-400 dark:focus:border-Bright_Blue focus:outline-none focus:border-Bright_Blue  text-[14px] font-medium "
               type="text"
               placeholder=""
               value={userData.name}
               onChange={handleChange}
             />
+            {isSubmited && userData.name == "" ? (
+              <span className="text-[12px] text-Red font-bold ml-1">
+                Enter Your Name
+              </span>
+            ) : (
+              ""
+            )}
           </div>
 
           {/* Create Password Field */}
@@ -106,17 +113,24 @@ export const SignUpForm = () => {
               onChange={handleChange}
               name="password"
               id="create_pass"
-              className="border-[1px] border-Soft_Gray dark:focus:border-Bright_Blue dark:border-Soft_Gray_20 dark:bg-black rounded-[8px] h-[64px] px-4 placeholder:text-gray-400 focus:outline-none focus:border-Bright_Blue text-[14px] font-medium "
+              className="border-[1px] border-Soft_Gray dark:focus:border-Bright_Blue dark:border-Soft_Gray_20 dark:bg-Black rounded-[8px] h-[64px] px-4 placeholder:text-gray-400 focus:outline-none focus:border-Bright_Blue text-[14px] font-medium "
               type={isShow ? "password" : "text"}
               placeholder=""
             />
-            <span
+            <img
               onClick={() => showPass()}
-              className="absolute cursor-pointer right-[3%] top-[58%] h-[18px] w-[18px]"
-            >
-              {isShow ? <IoEyeOff /> : <IoEye />}
-            </span>
+              className="absolute right-[3%] top-[58%] h-[18px] w-[18px]"
+              src={Show_Icon}
+              alt="Show_Icon"
+            />
           </div>
+          {isSubmited && userData.password == "" ? (
+            <span className="text-[12px] text-Red font-bold ml-1 -mt-2">
+              Pls Enter Pasword
+            </span>
+          ) : (
+            ""
+          )}
 
           {/* Email Address Field */}
           <div className="flex flex-col gap-2 relative ">
@@ -126,15 +140,27 @@ export const SignUpForm = () => {
             <input
               name="email"
               id="email"
-              className=" dark:focus:border-Bright_Blue border-[1px] border-Soft_Gray dark:border-Soft_Gray_20 dark:bg-black rounded-[8px] h-[64px] px-4 placeholder:text-gray-400 focus:outline-none focus:border-Bright_Blue text-[14px] font-medium "
+              className=" dark:focus:border-Bright_Blue border-[1px] border-Soft_Gray dark:border-Soft_Gray_20 dark:bg-Black rounded-[8px] h-[64px] px-4 placeholder:text-gray-400 focus:outline-none focus:border-Bright_Blue text-[14px] font-medium "
               type="email"
               placeholder=""
               onChange={handleChange}
             />
-            <span className="absolute right-[3%]  top-[58%] h-[18px] w-[18px] dark:text-white text-black">
+            {/* <img
+              className="absolute right-[3%]  top-[58%] h-[18px] w-[18px]"
+              src={Email_icon_White}
+              alt="Email_icon"
+            /> */}
+            <span className="absolute right-[3%]  top-[58%] h-[18px] w-[18px] dark:text-White text-Black">
               <MdMailOutline />
             </span>
           </div>
+          {isSubmited && userData.email == "" ? (
+            <span className="text-[12px] text-Red font-bold ml-1 -mt-2">
+              Pls Enter Email
+            </span>
+          ) : (
+            ""
+          )}
 
           {/* Country Field */}
           <div className="flex flex-col gap-2">
@@ -147,6 +173,13 @@ export const SignUpForm = () => {
                 setUserData={setUserData}
               />
             </div>
+            {isSubmited && userData.country == "" ? (
+              <span className="text-[12px] text-Red font-bold ml-1">
+                Select Country
+              </span>
+            ) : (
+              ""
+            )}
           </div>
 
           {/* Mobile Number Field */}
@@ -157,35 +190,42 @@ export const SignUpForm = () => {
             <input
               name="mobileNo"
               id="Mobile_num"
-              className=" border-[1px] border-Soft_Gray dark:border-Soft_Gray_20 dark:bg-black rounded-[8px] h-[64px] px-4 placeholder:text-gray-400 focus:outline-none focus:border-Bright_Blue dark:focus:border-Bright_Blue text-[14px] font-medium "
+              className=" border-[1px] border-Soft_Gray dark:border-Soft_Gray_20 dark:bg-Black rounded-[8px] h-[64px] px-4 placeholder:text-gray-400 focus:outline-none focus:border-Bright_Blue dark:focus:border-Bright_Blue text-[14px] font-medium "
               type="text"
               placeholder=""
               value={userData.mobileNo}
               onChange={handleChange}
             />
+            {isSubmited && userData.mobileNo == "" ? (
+              <span className="text-[12px] text-Red font-bold ml-1">
+                Pls Enter Mobile No
+              </span>
+            ) : (
+              ""
+            )}
           </div>
 
           {/* Submit Button */}
           <button
+            disabled={isDisable}
             type="submit"
-            className="bg-Bright_Blue rounded-[8px] text-white py-4 mt-5"
+            className="bg-Bright_Blue rounded-[8px] text-White py-4 mt-5"
           >
             Continue
           </button>
         </form>
         <div className=" text-center py-[25px] flex  flex-col gap-[15px]">
-          <p className="dark:text-white text-black text-[14px] font-bold">
+          <p className="dark:text-White text-Black text-[14px] font-bold">
             Already registered?{" "}
             <span className="text-Bright_Blue font-bold">Sign In</span>
           </p>
-          <p className="dark:text-white text-black text-[14px] font-bold">
+          <p className="dark:text-White text-Black text-[14px] font-bold">
             By continue, you agree to our{" "}
             <span className="text-Bright_Blue">Terms and conditions </span>&
             that you have read our
             <span className="text-Bright_Blue"> Privacy Policy</span>
           </p>
         </div>
-        <ToastContainer />
       </div>
     </>
   );

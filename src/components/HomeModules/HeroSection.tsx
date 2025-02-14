@@ -11,7 +11,7 @@ export const HeroSection = () => {
     const [isMobile, setIsMobile] = useState<boolean | null>(null);
     useEffect(() => {
         const handleResize = () => {
-            setIsMobile(window.innerWidth < 1028);
+            setIsMobile(window.innerWidth < 1024);
         };
 
         handleResize(); // Set initial value on mount
@@ -24,16 +24,16 @@ export const HeroSection = () => {
         <>
             {isMobile ? (
                 <>
-                    <img className="w-[75%] md:w-[45%] absolute -z-10 top-0 right-0" src={isDark ? mobilepreview_mb_dark : mobilepreview_mb} alt="Mobile Preview Light" />
+                    <img className="w-[75%] md:w-[30%] absolute -z-10 top-0 right-0" src={isDark ? mobilepreview_mb_dark : mobilepreview_mb} alt="Mobile Preview Light" />
                 </>
             ) : (
                 <>
-                    <img className="w-[75%] lg:w-[65%] absolute -z-10 top-0 right-0" src={isDark ? mobilepreview_dark : mobilepreview} alt="Desktop Preview Light" />
+                    <img className="w-[55%] absolute -z-10 top-0 right-0" src={isDark ? mobilepreview_dark : mobilepreview} alt="Desktop Preview Light" />
                 </>
             )}
-            <div className="flex flex-col lg:flex-row py-14 md:py-32 lg:py-28 justify-center lg:justify-start text-center lg:text-start items-center">
-                <div className="w-full md:w-[65%] lg:w-1/2">
-                    <h1>Start building your crypto portfolio today</h1>
+            <div className="flex flex-col lg:flex-row py-14 lg:py-28 justify-center lg:justify-start text-center lg:text-start items-center">
+                <div className="w-full md:w-[75%] lg:w-[60%]">
+                    <h1>Start building your crypto <br/>portfolio today</h1>
                     <p>Discover how specific cryptocurrencies <br />work — and get a bit of each crypto to try out for yourself.</p>
                     <div className='flex lg:my-10 my-5 p-3 items-center justify-between rounded-md bg-[#ffffff99] dark:bg-[#0A0A0AAE] shadow-lg'>
                         <input className='outline-0 bg-transparent px-2' type="email" placeholder='Enter your Email to Start' />

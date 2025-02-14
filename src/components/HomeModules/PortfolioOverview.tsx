@@ -38,7 +38,7 @@ export const PortfolioOverview = () => {
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
     return (
-        <div className="flex gap-10 items-center flex-wrap md:flex-nowrap ">
+        <div className="flex gap-10 items-center flex-wrap md:flex-nowrap py-14 lg:py-20">
             {/* Left Side */}
             <div className="w-full md:w-[45%] lg:w-1/2 relative">
                 <img className="absolute -z-10 portfolio_bg" src={isDark ? elipse_dark : elipse} alt="background elipse" />

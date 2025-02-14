@@ -22,7 +22,7 @@ export const RegRightSideData = () => {
           <h3 className="text-white text-[18px] font-extrabold">
             Waiapi Karaka
           </h3>
-          <h5 className="text-Soft_White text-[14px] font-normal ">
+          <h5 className="text-Soft_white text-[14px] font-normal ">
             Financial Officer
           </h5>
         </div>

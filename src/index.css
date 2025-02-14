@@ -28,10 +28,26 @@ h3{
   font-size: 16px;
   line-height: 24px;
 }
+h4{
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 24px;
+}
+h5{
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 21px;
+}
+h6{
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 18px;
+}
 p{
   font-size: 16px;
   line-height: 24px;
 }
+
 /* img{
   max-width: fit-content;
 } */
@@ -39,7 +55,7 @@ p{
 
 /* container */
 .cont{
-  @apply mx-auto container px-[10px];
+  @apply mx-auto container px-[20px];
 }
 
 
@@ -61,6 +77,10 @@ p{
 
   /* Custom Styles for Mobile (max-width: 640px) */
   @media (max-width: 640px) {
+    h2 {
+      font-size: 22px!important;
+      line-height: 29.05px!important;
+    }
     .subscription input {
       height: 50px;
     }

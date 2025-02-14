@@ -5,22 +5,20 @@ interface Props {
   setUserData: any;
 }
 export const CountryDropDown = ({ selectedCountrys, setUserData }: Props) => {
+  // const [input, setInput] = useState<string>("");
   const [input, setInput] = useState<string>(selectedCountrys);
+
   const [filteredCountries, setFilteredCountries] = useState(countryWithCode);
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  // const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
+  const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
 
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  //Handle Change Function
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const searchValue = e.target.value;
     setInput(searchValue);
-    // setSelectedCountry(null);
-    // If input is cleared, update userData
-    if (searchValue.trim() === "") {
-      setUserData((prev: any) => ({ ...prev, country: "" })); // Clear country in userData
-    }
+
+    setSelectedCountry(null); // Allow user to edit after selecting
 
     const filtered = countryWithCode.filter((country) =>
       country.name.toLowerCase().includes(searchValue.toLowerCase())
@@ -33,7 +31,7 @@ export const CountryDropDown = ({ selectedCountrys, setUserData }: Props) => {
   const handleSelect = (name: string) => {
     setUserData((prev: any) => ({ ...prev, country: name })); // Update userData first
     setInput(name); // Immediately update input field
-    // setSelectedCountry(name);
+    setSelectedCountry(name);
     setIsOpen(false);
   };
 
@@ -47,11 +45,8 @@ export const CountryDropDown = ({ selectedCountrys, setUserData }: Props) => {
         setIsOpen(false);
       }
     };
-
     setInput(selectedCountrys);
-
     document.addEventListener("mousedown", handleClickOutside);
-
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -64,7 +59,7 @@ export const CountryDropDown = ({ selectedCountrys, setUserData }: Props) => {
         placeholder="Please select your country"
         className="dark:focus:border-Bright_Blue border-[1px] border-Soft_Gray dark:border-Soft_Gray_20 dark:bg-black rounded-[8px] h-[64px] px-4 placeholder:text-gray-400 focus:outline-none focus:border-Bright_Blue text-[14px] w-[100%] font-medium"
         onChange={handleChange}
-        value={input}
+        value={input} // Keeps input editable
         onFocus={() => setIsOpen(true)}
       />
       {isOpen && (

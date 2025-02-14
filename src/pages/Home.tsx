@@ -1,8 +1,10 @@
 
 import { HeroSection } from "../components/HomeModules/HeroSection";
-import { Navbar } from "../components/Utilities/Navbar";
 import { PortfolioOverview } from "../components/HomeModules/PortfolioOverview";
 import { FeaturedPosts } from "../components/HomeModules/FeaturedPosts";
+import { ExploreMarket } from "../components/HomeModules/ExploreMarket";
+import { Navbar } from "../components/Common/Navbar";
+import { MainFooter } from "../components/Common/MainFooter";
 
 export const Home = () => {
     return (
@@ -11,9 +13,11 @@ export const Home = () => {
                 <Navbar />
                 <div className="cont">
                     <HeroSection />
+                    <ExploreMarket/>
                     <PortfolioOverview />
                 </div>
                 <FeaturedPosts/>
+                < MainFooter/>
             </div>
         </>
     );

@@ -3,7 +3,6 @@ import { SignUpForm } from "./SignUpForm";
 import Background_img from "../../../assets/Singup_Bg.png";
 import Background_img_mbl from "../../../assets/singup_mbl_bg.png";
 import { RegRightSideData } from "./RegRightSideData";
-import { Slider } from "../Slider";
 
 
 export const SignUpModule = () => {
@@ -38,7 +37,6 @@ export const SignUpModule = () => {
           </div>
         </div>
       </div>
-      <Slider/>
     </>
   );
 };
