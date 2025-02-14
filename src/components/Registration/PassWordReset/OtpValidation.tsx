@@ -27,7 +27,6 @@ export const OtpValidation = () => {
         </h2>
 
         <form className="lg:w-[100%] md:w-[100%] flex flex-col gap-5 mt-5">
-
           {/* Otp Verification Field*/}
           <div className="flex w-[100%]   gap-5 relative ">
             <OTPInput
