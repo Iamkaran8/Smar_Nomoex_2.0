@@ -1,3 +1,11 @@
+export const Navlinks = [
+    { name: "Prices", url: "/prices" },
+    { name: "Market", url: "/market" },
+    { name: "Exchange", url: "/exchange" },
+    { name: "Learn", url: "/learn-earn" },
+    { name: "Updates", url: "/updates" },
+]
+
 export const Footerurls = [
     {
         title: "About Us",

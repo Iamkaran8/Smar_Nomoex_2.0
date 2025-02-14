@@ -49,7 +49,7 @@ export const MainFooter = () => {
                                 <ul className="flex flex-col gap-3">
                                     {section.links.map((link, idx) => (
                                         <li key={idx} className="text-Slate_Gray font-semibold cursor-pointer">
-                                            <Link to={link.url}><h5>{link.name}</h5></Link>
+                                            
                                         </li>
                                     ))}
                                 </ul>
