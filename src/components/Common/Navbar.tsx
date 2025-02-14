@@ -19,8 +19,8 @@ export const Navbar = () => {
                             </li>
                             )}
                         </ul>
-                        <ButtonTransparent title="Sign in"/>
-                        <ButtonBlue title="Get Started" />
+                        <ButtonTransparent title="Sign in" link="/signup"/>
+                        <ButtonBlue title="Get Started"  link="/signin"/>
                         <div></div>
                     </div>
                 </div>
