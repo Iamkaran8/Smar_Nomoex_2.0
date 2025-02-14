@@ -17,6 +17,7 @@ export const MainFooter = () => {
                     <div className=" w-full lg:w-1/3 flex justify-between flex-col md:flex-row lg:flex-col lg:items-start items-center text-center md:text-start">
                         <div>
                             <h3>Get crypto news every day</h3>
+                            <p className="md:hidden py-5 font-medium text">The world’s first marketplace for collectibles and non-fungible tokens NFTs</p>
                             <NewsletterPlain />
                             <ThemeBtn/>
                         </div>
