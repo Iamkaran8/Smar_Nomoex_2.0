@@ -1,8 +1,15 @@
+
 import { Link } from "react-router-dom"
 
 interface BtnProps {
     title: string
-    link: string
+    link: string,
+    
+}
+interface ButtonTransparentProps{
+    title: string 
+    link: string,
+    border:string
 }
 export const ButtonBlue = ({ title, link }: BtnProps) => {
     return (
@@ -16,11 +23,11 @@ export const ButtonBlue = ({ title, link }: BtnProps) => {
 }
 
 
-export const ButtonTransparent = ({ title, link }: BtnProps) => {
+export const ButtonTransparent = ({ title, link ,border }: ButtonTransparentProps) => {
     return (
         <>
             <Link to={link}>
-                <button className='bg-transparent dark:border-white border border-black px-5 py-2 rounded-md font-medium'>
+                <button className={`bg-transparent  border-[1px] border-${border} px-5 py-2 rounded-[8px] font-bold`}>
                     {title}
                 </button>
             </Link>
