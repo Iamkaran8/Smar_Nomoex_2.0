@@ -1,30 +1,23 @@
 import Nomoex_Logo from "../../../assets/Nomoex_Full_logo.svg";
-import {  useState } from "react";
+import { useState } from "react";
 import { CountryDropDown } from "./CountryDropDown";
 import { MdMailOutline } from "react-icons/md";
 import { ToastContainer, toast } from "react-toastify";
 import { GoEye, GoEyeClosed } from "react-icons/go";
 import { Link } from "react-router-dom";
 import { CountryMobileCode } from "./CountryMobileCode";
-import { UserDataType } from "../../../model";
-
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../../redux/store";
+import { addSignUpUserData } from "../../../redux/slices/AuthSlice";
 
 export const SignUpForm = () => {
+  const userData = useSelector((state: RootState) => state.auth.userSignUpData);
+  const dispatch = useDispatch();
   const [isShow, setIsShow] = useState<boolean>(true);
 
   const showPass = () => {
     setIsShow((prev) => (prev = !prev));
   };
-
-  //User Form Data
-  const [userData, setUserData] = useState<UserDataType>({
-    name: "",
-    password: "",
-    email: "",
-    country: "",
-    mobileNo: "",
-    countrycode: "",
-  });
 
   // Form Submission
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -54,14 +47,13 @@ export const SignUpForm = () => {
     }
 
     if (!isValid) return;
-
-    console.log("Form submitted successfully:", userData);
+    console.log("From Store redux", userData);
   };
 
   //User Data Storing
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setUserData((prev) => ({ ...prev, [name]: value }));
+    dispatch(addSignUpUserData({ name, value }));
   };
 
   return (
@@ -106,6 +98,7 @@ export const SignUpForm = () => {
                 className="border-[1px] border-Soft_Gray dark:focus:border-Bright_Blue dark:border-Soft_Gray_20 dark:bg-black rounded-[8px] h-[64px] px-4 placeholder:text-gray-400 focus:outline-none focus:border-Bright_Blue text-[14px] font-medium "
                 type={isShow ? "password" : "text"}
                 placeholder="Type Your Password"
+                value={userData.password}
               />
               <span
                 onClick={() => showPass()}
@@ -127,6 +120,7 @@ export const SignUpForm = () => {
                 type="email"
                 placeholder="Email"
                 onChange={handleChange}
+                value={userData.email}
               />
               <span className="absolute right-[3%]  top-[58%] h-[18px] w-[18px] dark:text-white text-black">
                 <MdMailOutline />
@@ -141,7 +135,7 @@ export const SignUpForm = () => {
               <div className="relative w-full    flex items-center">
                 <CountryDropDown
                   selectedCountrys={userData.country}
-                  setUserData={setUserData}
+                  // setUserData={setUserData}
                 />
               </div>
             </div>

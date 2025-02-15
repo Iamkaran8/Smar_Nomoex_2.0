@@ -1,27 +1,24 @@
 import { useState, useRef, useEffect, FC } from "react";
 import countryWithCode from "../../Utilities/countryWIthCode";
 import "../../../App.css";
+import { useDispatch } from "react-redux";
+import { addSignUpUserData } from "../../../redux/slices/AuthSlice";
 
 interface Props {
   selectedCountrys: string;
-  setUserData: any;
 }
 
-export const CountryDropDown = ({ selectedCountrys, setUserData }: Props) => {
+export const CountryDropDown = ({ selectedCountrys }: Props) => {
   const [input, setInput] = useState<string>(selectedCountrys);
   const [filteredCountries, setFilteredCountries] = useState(countryWithCode);
   const [isOpen, setIsOpen] = useState<boolean>(false);
-
+  const dispatch = useDispatch();
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Handle input change
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const searchValue = e.target.value;
     setInput(searchValue);
-
-    if (searchValue.trim() === "") {
-      setUserData((prev: any) => ({ ...prev, country: "" }));
-    }
 
     const filtered = countryWithCode.filter((country) =>
       country.name.toLowerCase().includes(searchValue.toLowerCase())
@@ -32,7 +29,8 @@ export const CountryDropDown = ({ selectedCountrys, setUserData }: Props) => {
   };
 
   const handleSelect = (name: string, code: string) => {
-    setUserData((prev: any) => ({ ...prev, country: name, countrycode: code }));
+    dispatch(addSignUpUserData({ name: "country", value: name }));
+    dispatch(addSignUpUserData({ name: "countrycode", value: code }));
     setInput(name);
     setIsOpen(false);
   };

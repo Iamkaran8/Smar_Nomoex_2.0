@@ -1,18 +1,16 @@
 import Nomoex_Logo from "../../../assets/Nomoex_Full_logo.svg";
-import { useState } from "react";
 import { MdMailOutline } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-
-interface UserDataType {
-  email: string;
-}
+import { RootState } from "../../../redux/store";
+import { addForgetPasswordmail, sendOtp } from "../../../redux/slices/AuthSlice";
 
 export const PassWordResetForm = () => {
-  //User Form Data
-  const [userData, setUserData] = useState<UserDataType>({
-    email: "",
-  });
+  const dispatch = useDispatch();
+  const userEmail = useSelector(
+    (state: RootState) => state.auth.forgetPasswordMail
+  );
 
   // Form Submission
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -21,20 +19,22 @@ export const PassWordResetForm = () => {
     //Input Validations
     let isValid = true;
 
-    if (!userData.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+    if (!userEmail.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
       toast.error("Enter a Valid Email Address");
       isValid = false;
     }
 
     if (!isValid) return;
 
-    console.log("Form submitted successfully:", userData);
+    console.log("Form submitted successfully:", userEmail);
+    dispatch(sendOtp())
   };
 
   //User Data Storing
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setUserData((prev) => ({ ...prev, [name]: value }));
+    const { value } = e.target;
+    dispatch(addForgetPasswordmail(value));
+    
   };
 
   return (

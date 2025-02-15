@@ -3,8 +3,12 @@ import Nomoex_Logo from "../../../assets/Nomoex_Full_logo.svg";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../redux/store";
 
 export const OtpValidation = () => {
+
+  const Email = useSelector((state:RootState)=>state.auth.forgetPasswordMail)
   const [otp, setOtp] = useState("");
   const handleChange = (value: string) => {
     // Allow only numeric values
@@ -23,7 +27,7 @@ export const OtpValidation = () => {
             alt="Nomoex_Icon"
           />
           <h2 className=" text-[35px] font-bold leading-[45px]  pt-2">
-            Enter OTP Send on karansenthil@gmail.com
+            Enter OTP Send on {Email}
           </h2>
 
           <form className="lg:w-[100%] md:w-[100%] flex flex-col gap-5 mt-5">
