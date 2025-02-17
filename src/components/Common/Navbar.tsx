@@ -38,17 +38,17 @@ export const Navbar = () => {
           </div>
 
           {/* Tablet Menu - Only Visible For tablet And Mobile */}
-          <div className="block lg:hidden md:block relative">
+          <div className="block text-white lg:hidden md:block relative  ">
             <button onClick={handleChange} className={`bg-transparent  border-[1px] border-Soft_Gray px-5 py-2 rounded-[8px] font-bold`} >
-              <RxHamburgerMenu />
+              <i className="text-black dark:text-white"><RxHamburgerMenu /></i>
             </button>
             {isOpen ? (
-              <div className="absolute w-[400px] -right-5 mt-5  bg-black h-screen">
+              <div className="absolute w-[400px] -right-5 mt-5 bg-white  dark:bg-black h-screen  ">
                 <div className="flex flex-col gap-5 items-center ">
                   <ul className="flex flex-col text-center gap-7 mt-5 py-3">
                     {Navlinks.map((items, index) => (
                       <li key={index}>
-                        <Link className=" text-Slate_Gray" to={items.url}>
+                        <Link className="text-black dark:text-white dark:hover:text-white hover:text-black transition-all duration-300	" to={items.url}>
                           <h5 className="text-[20px]">{items.name}</h5>
                         </Link>
                       </li>

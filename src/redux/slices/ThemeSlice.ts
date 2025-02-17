@@ -3,7 +3,7 @@ import { ThemeState } from "../../model";
 
 // Define initial state
 const initialState: ThemeState = {
-    isDark: true,
+    isDark: false,
 };
 
 // Create theme slice

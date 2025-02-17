@@ -4,6 +4,8 @@ import { NotFound } from "../pages/NotFound";
 import { Signin } from "../pages/AuthPages/SignIn";
 import { ForgetPassword } from "../pages/AuthPages/ForgetPassword";
 import { SignUp } from "../pages/AuthPages/SignUp";
+import { LayOut } from "../components/Common/Layout/Layout";
+import { DashBorad } from "../pages/Dashboard";
 
 export const Routing = () => {
   return (
@@ -13,6 +15,8 @@ export const Routing = () => {
         <Route path="signup" element={<SignUp />} />
         <Route path="signin" element={<Signin />} />
         <Route path="forget-password" element={<ForgetPassword />} />
+        <Route path="dashboard"  element={<DashBorad/>} />
+        <Route path="layout" element={<LayOut/>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
