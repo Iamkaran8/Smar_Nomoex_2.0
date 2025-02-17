@@ -57,7 +57,7 @@ export const MainFooter = () => {
                       key={idx}
                       className="text-Slate_Gray font-semibold cursor-pointer"
                     >
-                      <Link to={link.url}>
+                      <Link className="dark:hover:text-white hover:text-black transition-all duration-300" to={link.url}>
                         <h5>{link.name}</h5>
                       </Link>
                     </li>

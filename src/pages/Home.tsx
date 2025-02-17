@@ -6,6 +6,7 @@ import { ExploreMarket } from "../components/HomeModules/ExploreMarket";
 import { Navbar } from "../components/Common/Navbar";
 import { MainFooter } from "../components/Common/MainFooter";
 import { CopyRight } from "../components/Common/CopyRight";
+import { LearnAboutBlockChain } from "../components/HomeModules/LearnAboutBlockChain";
 
 export const Home = () => {
     return (
@@ -16,6 +17,7 @@ export const Home = () => {
                 <ExploreMarket/>
                 <PortfolioOverview />
                 <FeaturedPosts/>
+                <LearnAboutBlockChain/>
                 < MainFooter/>
                 <CopyRight/>
             </div>

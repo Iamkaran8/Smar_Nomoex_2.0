@@ -12,7 +12,7 @@ export const Navbar = () => {
     setIsOpen((prev) => !prev);
   };
   return (
-    <div className="dark:z-20 z-20 bg-transparent bg-white dark:bg-black sticky top-0">
+    <div className="dark:z-20 z-20 shadow-sm bg-transparent bg-white dark:bg-black sticky border-b-[1px] border-Soft_Gray_20 top-0">
       <div className="cont py-5">
         <div className="flex justify-between items-center">
           <div>
@@ -25,7 +25,7 @@ export const Navbar = () => {
               <ul className="flex gap-7">
                 {Navlinks.map((items, index) => (
                   <li key={index}>
-                    <Link className="text-Slate_Gray" to={items.url}>
+                    <Link className="text-Slate_Gray dark:hover:text-white hover:text-black transition-all duration-300	" to={items.url}>
                       <h5>{items.name}</h5>
                     </Link>
                   </li>
