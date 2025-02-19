@@ -7,7 +7,8 @@ export const TopStories = () => {
     {
       category: "How-to Guides",
       title: "A Complete Guide to Making Passive Income With Lending?",
-      description: "Chart of the to the MetaverseTrading volume for Metaverse tokens skyrocketed by a whopping 153%",
+      description:
+        "Chart of the to the MetaverseTrading volume for Metaverse tokens skyrocketed by a whopping 153%",
       posted_by: "Brijanohan Mallick",
       date: "01 Feb 22",
       difficulty: "Easy",
@@ -16,7 +17,8 @@ export const TopStories = () => {
     {
       category: "How-to Guides",
       title: "The Ultimate Dummy’s Guide to Passive Income with Staking?",
-      description: "Miami Mayor Francis Suarez said he’s still taking his city salary in Bitcoin even after a rout that sent the cryptocurrency",
+      description:
+        "Miami Mayor Francis Suarez said he’s still taking his city salary in Bitcoin even after a rout that sent the cryptocurrency",
       posted_by: "Praskovya Dubinina",
       date: "23 Mar 22",
       difficulty: "Experienced",
@@ -24,9 +26,9 @@ export const TopStories = () => {
     },
     {
       category: "How-to Guides",
-      title:
-        "Miami Mayor Suarez Tells Davos He Still Takes Salary in Bitcoin?",
-      description: "Japanese investment bank Nomura is launching a subsidiary to give institutions access to digital assets, report in the FT",
+      title: "Miami Mayor Suarez Tells Davos He Still Takes Salary in Bitcoin?",
+      description:
+        "Japanese investment bank Nomura is launching a subsidiary to give institutions access to digital assets, report in the FT",
       posted_by: "Homura Yunosuke",
       date: "19 Jun 22",
       difficulty: "Easy",
@@ -36,32 +38,36 @@ export const TopStories = () => {
 
   return (
     <>
-      <div className="border-[1px] border-Soft_Gray rounded-[8px]">
-        <div className="border-b-[1px] border-Soft_Gray p-5">
+      <div className="border-[1px] border-Soft_Gray rounded-[8px] dark:border-Soft_Gray_20">
+        <div className="border-b-[1px] border-Soft_Gray p-5 dark:border-Soft_Gray_20">
           <h3 className="text-[16x]">Top Stories</h3>
         </div>
         {articles.map((blog, i) => (
-          <div className="px-5" key={i}>
-            <div className="flex gap-5 py-5">
-              <div className="w-[25%] flex items-center">
+          <div className="px-5 " key={i}>
+            <div className="flex flex-col  gap-5 py-5 md:flex-row">
+              <div className=" md:w-[25%] flex items-center">
                 <img
                   className="rounded-[12px] w-[146px] h-[124px]"
                   src={blog.image}
                   alt={blog.category}
                 />
               </div>
-              <div className="w-[75%] flex flex-col gap-2">
+              <div className=" w-[100%] md:w-[75%] flex flex-col gap-2">
                 <div className="flex gap-3">
-                  <p className="text-[12px] text-Slate_Gray font-normal">{blog.date}</p>
+                  <p className="text-[12px] text-Slate_Gray font-normal">
+                    {blog.date}
+                  </p>
                   <p className="text-[12px] font-medium">{blog.category}</p>
                 </div>
-                <h3 className="text-[16px] leading-[24px] font-bold w-[80%]">
+                <h3 className="text-[16px] leading-[24px] font-bold w-[100%] md:w-[80%]">
                   {blog.title}
                 </h3>
-                <p className="text-[14px] w-[80%] text-Slate_Gray leading-[21px] font-normal">{blog.description}</p>
+                <p className="text-[14px] w-[100%] md:w-[80%] text-Slate_Gray leading-[21px] font-normal">
+                  {blog.description}
+                </p>
               </div>
             </div>
-            <hr />
+            {i === articles.length - 1 ? "" : <hr className="dark:border-Soft_Gray_20" />}
           </div>
         ))}
       </div>

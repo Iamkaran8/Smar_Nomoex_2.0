@@ -47,20 +47,12 @@ export const TrendingAssets = () => {
       price: "$0.936",
       percentage: "+34.13%",
       image: burgerswap,
-    },
-    {
-      id: 6,
-      name: "Anchor Prot",
-      symbol: "UMA",
-      price: "$0.352",
-      percentage: "+16.40%",
-      image: prot,
-    },
+    }
   ];
   return (
-    <div className=" border-[1px] rounded-[8px] border-Soft_Gray">
-      <div className="border-b-[1px] border-Soft_Gray p-5">
-        <h3 className="text-[16px]">Latest Transaction</h3>
+    <div className=" border-[1px] rounded-[8px] border-Soft_Gray dark:border-Soft_Gray_20">
+      <div className="border-b-[1px] border-Soft_Gray p-5 dark:border-Soft_Gray_20">
+        <h3 className="text-[16px]">Trending Assets</h3>
       </div>
       <table className="w-[100%]">
         {trendingAssets.map((data) => (
@@ -87,7 +79,7 @@ export const TrendingAssets = () => {
       </table>
 
       <div className="p-5">
-        <button className=" flex justify-center items-center gap-4 border-[1px] rounded-[8px] border-Soft_Gray w-[100%] p-3 font-[14px] font-bold">
+        <button className=" flex justify-center items-center gap-4 border-[1px] rounded-[8px] dark:border-Soft_Gray_20 border-Soft_Gray w-[100%] p-3 font-[14px] font-bold">
           <i className="text-[25px]">
             {" "}
             <HiDotsHorizontal />{" "}

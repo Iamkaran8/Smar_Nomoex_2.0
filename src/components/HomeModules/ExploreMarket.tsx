@@ -73,7 +73,7 @@ export const ExploreMarket = () => {
           {marketData.map((coin, index) => (
             <div
               key={index}
-              className="py-4 px-3 rounded-lg flex justify-between items-center border border-gray-300"
+              className="py-4 px-3 rounded-lg flex justify-between items-center border border-gray-300 dark:border-Soft_Gray_20"
             >
               <div className="flex items-center gap-2">
                 <img src={coin.icon} alt={coin.name} />
@@ -131,7 +131,9 @@ export const ExploreMarket = () => {
                   <td className="p-5 flex items-center gap-2">
                     {coin.rank}{" "}
                     <img className="px-2" src={coin.icon} alt={coin.name} />{" "}
-                    <span className="font-bold lg:block md:hidden">{coin.name}</span>{" "}
+                    <span className="font-bold lg:block md:hidden">
+                      {coin.name}
+                    </span>{" "}
                     <span className="text-gray-500">{coin.symbol}</span>
                   </td>
                   <td className="p-5 text-right">{coin.price}</td>
@@ -151,13 +153,17 @@ export const ExploreMarket = () => {
                   <td className="p-5 text-right md:hidden lg:block">
                     {coin.supply}
                   </td>
-                  <td className="p-2 text-right  ">
-                    <button className="bg-gray-800 px-3 py-1 rounded-lg text-white dark:border-[1px] dark:border-Soft_Gray_20 dark:bg-black text-[14px]">
-                      Trade
-                    </button>
-                    <button className="">
-                    <HiDotsVertical/>
-                    </button>
+                  <td className="p-2 text-right   ">
+                    <div className="flex items-center gap-2">
+                      <button className="bg-gray-800 px-4 py-2 border-[1px] bg-white rounded-[8px] text-[14px] dark:bg-black">
+                        Trade
+                      </button>
+                      <div className="hidden md:hidden lg:block">
+                        <button className="">
+                          <HiDotsVertical />
+                        </button>
+                      </div>
+                    </div>
                   </td>
                 </tr>
               ))}

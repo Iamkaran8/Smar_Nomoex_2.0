@@ -2,7 +2,6 @@ import btc from "../../assets/Dummy_images/Bitcoin.svg";
 import Ethereum from "../../assets/Dummy_images/Ethereum.svg";
 import xrp from "../../assets/Dummy_images/Xrp.svg";
 import litecoin from "../../assets/Dummy_images/Litecoin.svg";
-import Tether from "../../assets/Dummy_images/Tether.svg";
 import { HiDotsHorizontal } from "react-icons/hi";
 export const LatestTransaction = () => {
   const transaction = [
@@ -38,10 +37,12 @@ export const LatestTransaction = () => {
     },
   ];
 
+
+
   return (
     <>
-      <div className=" border-[1px] rounded-[8px] border-Soft_Gray">
-        <div className="border-b-[1px] border-Soft_Gray p-5">
+      <div className=" border-[1px] rounded-[8px] border-Soft_Gray dark:border-Soft_Gray_20">
+        <div className="border-b-[1px] border-Soft_Gray dark:border-Soft_Gray_20 p-5">
           <h3 className="text-[16px]">Latest Transaction</h3>
         </div>
         <table className="w-[100%] ">
@@ -49,7 +50,8 @@ export const LatestTransaction = () => {
             <tr className="">
               <td className="flex p-4 gap-3">
                 <img className="w-[28px]" src={data.image} alt={data.transactionId} />
-                    <h3 className="lg:text-[14px]md:text-[14px] font-bold">{data.transactionId.substring(0,10)}...</h3>
+                <h3 className="lg:text-[14px]md:text-[14px] font-bold hidden md:block lg:block">{data.transactionId}</h3>
+                    <h3 className="lg:text-[14px]md:text-[14px] font-bold lg:hidden md:hidden block">{data.transactionId.substring(0,12)}...</h3>
               </td>
               <td className="p-4 text-right">
                 <h4 className="text-[14px] font-bold">
@@ -61,7 +63,7 @@ export const LatestTransaction = () => {
         </table>
 
         <div className="p-5">
-          <button className=" flex justify-center items-center gap-4 border-[1px] rounded-[8px] border-Soft_Gray w-[100%] p-3 font-[14px] font-bold">
+          <button className=" flex justify-center items-center gap-4 border-[1px] rounded-[8px] border-Soft_Gray w-[100%] dark:border-Soft_Gray_20 p-3 font-[14px] font-bold">
            <i className="text-[25px]"> <HiDotsHorizontal /> </i> See All Transactions
           </button>
         </div>

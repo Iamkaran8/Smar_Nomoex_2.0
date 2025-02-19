@@ -14,10 +14,12 @@ export default {
         "Soft_Black": 'rgba(0, 0, 0, 0.75)',
         "Slate_Gray": 'rgba(93, 93, 91, 1)'  /*  #5D5D5B  */,
         "Soft_White": 'rgba(255, 255, 255, 0.5)'  /* #FFFFFF 50%*/,
+        "Gray" : "#CFDBD5",
         "Soft_Gray": 'rgba(207, 219, 213, 0.6);' /* #CFDBD560% */,
         "Soft_Gray_20": 'rgba(207, 219, 213, 0.2);' /* #CFDBD5 20% */,
         "Soft_Gray_15": 'rgba(207, 219, 213, 0.15);' /* #CFDBD5 15% */,
         "Pale_Ice_Blue" : "rgba(235, 240, 240, 0.65)"  /* #EBF0F0 65% */,
+        "Light_Cyan_Gray" : "rgba(235, 240, 240, 0.1)"  /* #EBF0F01A */,
         "Red" : '#CD0000',
         "Green" : "#23E33E"
         
