@@ -1,8 +1,14 @@
+<<<<<<< HEAD:src/components/Dashboard/WatchListCard.tsx
 import Eth from "../../assets/Dummy_images/Ethereum.svg";
 import SOL from "../../assets/Dummy_images/Solana.svg";
 import ltc from "../../assets/Dummy_images/Litecoin.svg";
 import { useEffect, useState } from "react";
 import { Pagination } from "./Pagination";
+=======
+import Eth from "../../../assets/Dummy_images/Ethereum.svg"
+import SOL from "../../../assets/Dummy_images/Solana.svg";
+import ltc from "../../../assets/Dummy_images/Litecoin.svg";
+>>>>>>> 4321e96def2f1f5a4743023f6265177afa69456e:src/components/Dashboard/Dashboard/WatchListCard.tsx
 
 export const WatchListCard = () => {
   const WatchList = [
@@ -30,6 +36,7 @@ export const WatchListCard = () => {
       image: ltc,
       percentage: "+12.53%",
     },
+<<<<<<< HEAD:src/components/Dashboard/WatchListCard.tsx
     {
       id: 4,
       title: "Highest volume (24h)",
@@ -104,6 +111,8 @@ const prod = WatchList.slice( Start , End);
 
 
 {console.log(currentPage)}
+=======
+>>>>>>> 4321e96def2f1f5a4743023f6265177afa69456e:src/components/Dashboard/Dashboard/WatchListCard.tsx
 
   return (
     <>

@@ -1,10 +1,10 @@
-import btc from "../../assets/Dummy_images/Bitcoin.svg";
-import Ethereum from "../../assets/Dummy_images/Ethereum.svg";
-import xrp from "../../assets/Dummy_images/Xrp.svg";
-import litecoin from "../../assets/Dummy_images/Litecoin.svg";
-import Tether from "../../assets/Dummy_images/Tether.svg";
+import btc from "../../../assets/Dummy_images/Bitcoin.svg";
+import Ethereum from "../../../assets/Dummy_images/Ethereum.svg";
+import xrp from "../../../assets/Dummy_images/Xrp.svg";
+import litecoin from "../../../assets/Dummy_images/Litecoin.svg";
+import Tether from "../../../assets/Dummy_images/Tether.svg";
 import { HiDotsHorizontal } from "react-icons/hi";
-import useScreen from "../../customHooks/useScreen";
+import useScreen from "../../../customHooks/useScreen";
 export const YourPortfolio = () => {
   const PorfolioDatas = [
     {

@@ -4,7 +4,7 @@ import ProfileImg from "../../../assets//Dummy_images/profile_pic.png";
 export const HeaderNav = () => {
   return (
     <>
-      <div className="cont border-[0px] md:border-b-[1px]  border-b-Soft_Gray cont flex justify-between py-4 dark:border-Soft_Gray_20">
+      <div className="border-[0px] md:border-b-[1px]  border-b-Soft_Gray cont flex justify-between py-4 dark:border-Soft_Gray_20">
         <div className=" flex items-center">
           <h2 className="text-[24px] mb-0 hidden md:block lg:block">
             Dashboard

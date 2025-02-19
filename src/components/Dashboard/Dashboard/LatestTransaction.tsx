@@ -1,7 +1,7 @@
-import btc from "../../assets/Dummy_images/Bitcoin.svg";
-import Ethereum from "../../assets/Dummy_images/Ethereum.svg";
-import xrp from "../../assets/Dummy_images/Xrp.svg";
-import litecoin from "../../assets/Dummy_images/Litecoin.svg";
+import btc from "../../../assets/Dummy_images/Bitcoin.svg";
+import Ethereum from "../../../assets/Dummy_images/Ethereum.svg";
+import xrp from "../../../assets/Dummy_images/Xrp.svg";
+import litecoin from "../../../assets/Dummy_images/Litecoin.svg";
 import { HiDotsHorizontal } from "react-icons/hi";
 export const LatestTransaction = () => {
   const transaction = [
