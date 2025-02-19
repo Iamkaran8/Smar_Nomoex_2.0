@@ -1,6 +1,6 @@
-import Eth from "../../assets/Dummy_images/Ethereum.svg";
-import SOL from "../../assets/Dummy_images/Solana.svg";
-import ltc from "../../assets/Dummy_images/Litecoin.svg";
+import Eth from "../../../assets/Dummy_images/Ethereum.svg"
+import SOL from "../../../assets/Dummy_images/Solana.svg";
+import ltc from "../../../assets/Dummy_images/Litecoin.svg";
 
 export const WatchListCard = () => {
   const WatchList = [
@@ -28,14 +28,6 @@ export const WatchListCard = () => {
       image: ltc,
       percentage: "+12.53%",
     },
-    // {
-    //     id: 4,
-    //     title: "Highest volume (24h)",
-    //     name: "Bitcoin",
-    //     symbol: "BTC",
-    //     image: SOL,
-    //     percentage: "+12.53%",
-    //   },
 
   ]
   return (

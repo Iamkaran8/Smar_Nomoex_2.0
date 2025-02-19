@@ -1,12 +1,5 @@
-import { FaArrowRightArrowLeft, FaArrowTrendUp } from "react-icons/fa6";
 import NomoexLogo from "../../../assets/Nomoex_Full_logo.svg";
-
-// import dashboardicon from "../../../assets/dashboardicon.svg";
-import { IoMdCard } from "react-icons/io";
-import { MdOutlineIncompleteCircle } from "react-icons/md";
-import { SiDatabricks } from "react-icons/si";
 import { Link } from "react-router-dom";
-import { i } from "framer-motion/m";
 
 export const SideNavbar = () => {
   const Navigation = [
@@ -55,7 +48,7 @@ export const SideNavbar = () => {
   ];
   return (
     <>
-      <div className="py-4 cont">
+      <div className="p-4 h-[100vh] sticky top-0">
         <div>
           <img
             className="h-[36px] w-[150px]"
