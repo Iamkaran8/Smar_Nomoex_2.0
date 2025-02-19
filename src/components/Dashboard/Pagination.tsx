@@ -4,9 +4,6 @@ interface Props {
   setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const handlePrevbtn = ()=>{
-
-}
 
 export const Pagination = ({
   totalNumberOfPage,
@@ -17,7 +14,11 @@ export const Pagination = ({
     <>
       {/* Pagination Section */}
       <div className="flex justify-between  p-5">
-        <button className="border-[1px] border-Soft_Gray rounded-[8px] dark:border-Soft_Gray_20 p-2 h-[40px] w-[40px] leading-[21px] h-[40px] w-[40px] flex  justify-center items-center " onClick={handlePrevbtn}>
+        <button
+        disabled={currentPage === 0}
+          className="border-[1px] border-Soft_Gray rounded-[8px] dark:border-Soft_Gray_20 p-2 h-[40px] w-[40px] leading-[21px] h-[40px] w-[40px] flex  justify-center items-center "
+          onClick={() => setCurrentPage((prev: number) => prev - 1)}
+        >
           {"<-"}
         </button>
         <div className="flex gap-3">
@@ -33,7 +34,11 @@ export const Pagination = ({
             </button>
           ))}
         </div>
-        <button className="border-[1px] border-Soft_Gray rounded-[8px] dark:border-Soft_Gray_20 p-2 h-[40px] w-[40px] leading-[21px] h-[40px] w-[40px] flex  justify-center items-center ">
+        <button
+        disabled={totalNumberOfPage.length === currentPage + 1}
+          className="border-[1px] border-Soft_Gray rounded-[8px] dark:border-Soft_Gray_20 p-2 h-[40px] w-[40px] leading-[21px] h-[40px] w-[40px] flex  justify-center items-center "
+          onClick={() => setCurrentPage((prev: number) => prev + 1)}
+        >
           {"->"}
         </button>
       </div>
