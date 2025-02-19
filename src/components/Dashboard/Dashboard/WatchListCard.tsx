@@ -37,7 +37,7 @@ export const WatchListCard = () => {
       title: "Highest volume (24h)",
       name: "Bitcoin",
       symbol: "BTC",
-      image: SOL,
+      image: Eth,
       percentage: "+12.53%",
     },
     {
@@ -53,7 +53,7 @@ export const WatchListCard = () => {
       title: "Highest volume (24h)",
       name: "Bitcoin",
       symbol: "BTC",
-      image: SOL,
+      image: ltc,
       percentage: "+12.53%",
     },
     {
@@ -100,8 +100,8 @@ export const WatchListCard = () => {
 
 const totalNumberOfPage = [...Array(Math.ceil(WatchList.length / 4)).keys()];
 const [currentPage, setCurrentPage] = useState<number>(0);
-const Start = currentPage * 4 ;
-const End  =  Start + 4;
+const Start = currentPage * 3 ;
+const End  =  Start + 3;
 const prod = WatchList.slice( Start , End);
 
 
@@ -112,19 +112,19 @@ const prod = WatchList.slice( Start , End);
       <div className="flex gap-5 ">
         {prod.map((data) => (
           <div
-            className="ease-in duration-300 flex gap-1 flex-col border-[1px] border-Soft_Gray rounded-[8px] dark:border-Soft_Gray_20 w-[30%]  p-5 hover:bg-Soft_Gray_20"
+            className="ease-in duration-300 flex gap-1 flex-col border-[1px] border-Soft_Gray rounded-[8px] dark:border-Soft_Gray_20 w-[33%]  p-5 hover:bg-Soft_Gray_20"
             key={data.id}
           >
             <p className="text-[14px] text-Slate_Gray dark:text-Soft_White ">
               {data.title}
             </p>
             <img
-              className="mt-3 h-[36px] w-[36px]"
+              className="mt-3 h-[36px] w-[36px] mb-1"
               src={data.image}
               alt={data.name}
             />
-            <div className="flex gap-2 items-center">
-              <h4 className="text-[14px] font-bold ">{data.name}</h4>
+            <div className="flex gap-2 items-center ">
+              <h4 className="text-[16px] font-bold ">{data.name}</h4>
               <p className="text-[14px] text-Slate_Gray font-normal">
                 {data.symbol}
               </p>
