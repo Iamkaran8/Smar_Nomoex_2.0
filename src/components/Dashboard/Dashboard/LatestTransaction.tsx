@@ -46,8 +46,9 @@ export const LatestTransaction = () => {
           <h3 className="text-[16px]">Latest Transaction</h3>
         </div>
         <table className="w-[100%] ">
-          {transaction.map((data) => (
-            <tr className="">
+          {transaction.map((data ) => (
+            <tbody key={data.id}>
+                          <tr className="" >
               <td className="flex p-4 gap-3">
                 <img className="w-[28px]" src={data.image} alt={data.transactionId} />
                 <h3 className="lg:text-[14px]md:text-[14px] font-bold hidden md:block lg:block">{data.transactionId}</h3>
@@ -59,6 +60,7 @@ export const LatestTransaction = () => {
                 </h4>
               </td>
             </tr>
+            </tbody>
           ))}
         </table>
 

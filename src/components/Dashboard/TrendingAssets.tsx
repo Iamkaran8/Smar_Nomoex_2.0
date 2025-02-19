@@ -46,7 +46,7 @@ export const TrendingAssets = () => {
       price: "$0.936",
       percentage: "+34.13%",
       image: burgerswap,
-    }
+    },
   ];
   return (
     <div className=" border-[1px] rounded-[8px] border-Soft_Gray dark:border-Soft_Gray_20">
@@ -55,25 +55,29 @@ export const TrendingAssets = () => {
       </div>
       <table className="w-[100%]">
         {trendingAssets.map((data) => (
-          <tr className="">
-            <td className="flex p-4 gap-3">
-              <img
-                className="w-[40px] h-[40px]"
-                src={data.image}
-                alt={data.name}
-              />
-              <div>
-                <h3 className="lg:text-[16px] md:text-[16px] font-bold">
-                  {data.name}
-                </h3>
-                <p className="text-Slate_Gray text-[14px]">{data.symbol}</p>
-              </div>
-            </td>
-            <td className="p-4 text-right">
-              <h4 className="text-[16px] font-bold">{data.price}</h4>
-              <p className="text-[14px] font-bold text-Green">{data.percentage}</p>
-            </td>
-          </tr>
+          <tbody key={data.id}>
+            <tr className="" >
+              <td className="flex p-4 gap-3">
+                <img
+                  className="w-[40px] h-[40px]"
+                  src={data.image}
+                  alt={data.name}
+                />
+                <div>
+                  <h3 className="lg:text-[16px] md:text-[16px] font-bold">
+                    {data.name}
+                  </h3>
+                  <p className="text-Slate_Gray text-[14px]">{data.symbol}</p>
+                </div>
+              </td>
+              <td className="p-4 text-right">
+                <h4 className="text-[16px] font-bold">{data.price}</h4>
+                <p className="text-[14px] font-bold text-Green">
+                  {data.percentage}
+                </p>
+              </td>
+            </tr>
+          </tbody>
         ))}
       </table>
 
