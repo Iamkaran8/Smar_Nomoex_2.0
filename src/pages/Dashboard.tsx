@@ -1,9 +1,9 @@
-import { LayOut } from "../components/Common/Layout/Layout"
+import { DashboardPage } from "../components/Dashboard/Dashboard/Page"
 
 export const DashBorad = ()=>{
     return(
         <>
-        <LayOut/>
+        <DashboardPage/>
         </>
     )
 }

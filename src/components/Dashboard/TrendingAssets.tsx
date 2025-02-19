@@ -3,7 +3,6 @@ import idexcoin from "../../assets/Dummy_images/IdexCoin.png";
 import Madrid from "../../assets/Dummy_images/madrid.png";
 import EosToken from "../../assets/Dummy_images/EosToken.png";
 import burgerswap from "../../assets/Dummy_images/BurgerSwap.png";
-import prot from "../../assets/Dummy_images/Anchor Prot.png";
 import { HiDotsHorizontal } from "react-icons/hi";
 
 export const TrendingAssets = () => {

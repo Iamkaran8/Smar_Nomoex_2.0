@@ -5,9 +5,10 @@ import { TotalBalence } from "./TotalBalence"
 import { TrendingAssets } from "../TrendingAssets"
 import { WatchLists } from "./WatchLists"
 import { YourPortfolio } from "./YourPortfolio"
+import { LayOut } from "../../Common/Layout/Layout"
 
 
-export const DashboardPage = () => {
+const CurrentPage = () => {
     return (
         <>
             {/* Total Balance Section */}
@@ -44,6 +45,15 @@ export const DashboardPage = () => {
                     <TrendingAssets />
                 </div>
             </div>
+        </>
+    )
+}
+
+
+export const DashboardPage = () => {
+    return (
+        <>
+            <LayOut dynamic={<CurrentPage />} />
         </>
     )
 }
