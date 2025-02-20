@@ -100,19 +100,17 @@ export const WatchListCard = () => {
 
 const totalNumberOfPage = [...Array(Math.ceil(WatchList.length / 4)).keys()];
 const [currentPage, setCurrentPage] = useState<number>(0);
-const Start = currentPage * 3 ;
-const End  =  Start + 3;
+const Start = currentPage * 4 ;
+const End  =  Start + 4;
 const prod = WatchList.slice( Start , End);
-
-
 
 
   return (
     <>
-      <div className="flex md:flex-row flex-col gap-5 items-center">
+      <div className="flex lg:flex-row flex-col gap-5  md:flex-row lg:flex-nowrap md:flex-wrap items-center">
         {prod.map((data) => (
           <div
-            className="ease-in duration-300 flex md:flex-row flex-col gap-1 md:flex-col border-[1px] border-Soft_Gray rounded-[8px] dark:border-Soft_Gray_20 lg:w-[33%] md:w-[33%] w-[80%]  p-5 lg:p-5 md:p-3 hover:bg-Soft_Gray_20"
+            className="ease-in duration-300 flex md:items-center items-center lg:items-start md:flex-row flex-col gap-1 md:flex-col border-[1px] border-Soft_Gray rounded-[8px] dark:border-Soft_Gray_20 lg:w-[25%] md:w-[47%] w-[80%]  p-5 lg:p-5 md:p-3 hover:bg-Soft_Gray_20"
             key={data.id}
           >
             <p className="text-[14px] text-Slate_Gray dark:text-Soft_White ">

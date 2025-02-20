@@ -8,7 +8,7 @@ export const WatchLists = () => {
           <h3 className="text-[16x]">Watchlist</h3>
         </div>
         <div className="p-5  ">
-          <WatchListCard />
+          <WatchListCard />     
         </div>
       </div>
     </>

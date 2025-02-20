@@ -44,6 +44,7 @@ const CurrentPage = () => {
           <TrendingAssets />
         </div>
       </div>
+      
     </div>
   );
 };
@@ -51,7 +52,7 @@ const CurrentPage = () => {
 export const DashboardPage = () => {
   return (
     <>
-      <LayOut dynamic={<CurrentPage />} />
+      <LayOut title="dashboard" dynamic={<CurrentPage />} />
     </>
   );
 };
