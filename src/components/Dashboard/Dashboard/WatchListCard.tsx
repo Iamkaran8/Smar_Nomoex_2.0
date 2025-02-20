@@ -18,7 +18,7 @@ export const WatchListCard = () => {
     },
     {
       id: 2,
-      title: "Highest volume (24h)",
+      title: "Highest vol (24h)",
       name: "Solana",
       symbol: "SOL",
       image: SOL,
@@ -34,7 +34,7 @@ export const WatchListCard = () => {
     },
     {
       id: 4,
-      title: "Highest volume (24h)",
+      title: "Highest vol (24h)",
       name: "Bitcoin",
       symbol: "BTC",
       image: Eth,
@@ -42,7 +42,7 @@ export const WatchListCard = () => {
     },
     {
       id: 5,
-      title: "Highest volume (24h)",
+      title: "Highest vol (24h)",
       name: "Bitcoin",
       symbol: "BTC",
       image: SOL,
@@ -50,7 +50,7 @@ export const WatchListCard = () => {
     },
     {
       id: 6,
-      title: "Highest volume (24h)",
+      title: "Highest vol (24h)",
       name: "Bitcoin",
       symbol: "BTC",
       image: ltc,
@@ -58,7 +58,7 @@ export const WatchListCard = () => {
     },
     {
       id: 7,
-      title: "Highest volume (24h)",
+      title: "Highest vol (24h)",
       name: "Bitcoin",
       symbol: "BTC",
       image: SOL,
@@ -74,7 +74,7 @@ export const WatchListCard = () => {
       },
       {
         id: 9,
-        title: "Highest volume (24h)",
+        title: "Highest vol (24h)",
         name: "Solana",
         symbol: "SOL",
         image: SOL,
@@ -90,7 +90,7 @@ export const WatchListCard = () => {
       },
       {
         id: 11,
-        title: "Highest volume (24h)",
+        title: "Highest vol (24h)",
         name: "Solana",
         symbol: "SOL",
         image: SOL,
@@ -109,10 +109,10 @@ const prod = WatchList.slice( Start , End);
 
   return (
     <>
-      <div className="flex gap-5 ">
+      <div className="flex md:flex-row flex-col gap-5 items-center">
         {prod.map((data) => (
           <div
-            className="ease-in duration-300 flex gap-1 flex-col border-[1px] border-Soft_Gray rounded-[8px] dark:border-Soft_Gray_20 w-[33%]  p-5 hover:bg-Soft_Gray_20"
+            className="ease-in duration-300 flex md:flex-row flex-col gap-1 md:flex-col border-[1px] border-Soft_Gray rounded-[8px] dark:border-Soft_Gray_20 lg:w-[33%] md:w-[33%] w-[80%]  p-5 lg:p-5 md:p-3 hover:bg-Soft_Gray_20"
             key={data.id}
           >
             <p className="text-[14px] text-Slate_Gray dark:text-Soft_White ">
