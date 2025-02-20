@@ -6,6 +6,7 @@ import { ForgetPassword } from "../pages/AuthPages/ForgetPassword";
 import { SignUp } from "../pages/AuthPages/SignUp";
 import { Dashboard } from "../pages/Dashboard";
 import { Assets } from "../pages/Assets";
+import { Transactions } from "../pages/Transactions";
 
 
 export const Routing = () => {
@@ -18,6 +19,7 @@ export const Routing = () => {
         <Route path="forget-password" element={<ForgetPassword />} />
         <Route path="dashboard" element={<Dashboard/>}/>
         <Route path="assets" element={<Assets/>}/>
+        <Route path="transactions" element={<Transactions/>}/>
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

@@ -37,8 +37,6 @@ export const LatestTransaction = () => {
     },
   ];
 
-
-
   return (
     <>
       <div className=" border-[1px] rounded-[8px] border-Soft_Gray dark:border-Soft_Gray_20">
@@ -46,27 +44,37 @@ export const LatestTransaction = () => {
           <h3 className="text-[16px]">Latest Transaction</h3>
         </div>
         <table className="w-[100%] ">
-          {transaction.map((data ) => (
+          {transaction.map((data) => (
             <tbody key={data.id}>
-                          <tr className="" >
-              <td className="flex p-4 gap-3">
-                <img className="w-[28px]" src={data.image} alt={data.transactionId} />
-                <h3 className="lg:text-[14px]md:text-[14px] font-bold hidden md:block lg:block">{data.transactionId}</h3>
-                    <h3 className="lg:text-[14px]md:text-[14px] font-bold lg:hidden md:hidden block">{data.transactionId.substring(0,12)}...</h3>
-              </td>
-              <td className="p-4 text-right">
-                <h4 className="text-[14px] font-bold">
-                    {data.value}
-                </h4>
-              </td>
-            </tr>
+              <tr className="hover:bg-Soft_Gray_20 ease-in duration-300 ">
+                <td className="flex p-4 gap-3">
+                  <img
+                    className="w-[28px]"
+                    src={data.image}
+                    alt={data.transactionId}
+                  />
+                  <h3 className="lg:text-[14px]md:text-[14px] font-bold hidden md:block lg:block">
+                    {data.transactionId}
+                  </h3>
+                  <h3 className="lg:text-[14px]md:text-[14px] font-bold lg:hidden md:hidden block">
+                    {data.transactionId.substring(0, 12)}...
+                  </h3>
+                </td>
+                <td className="p-4 text-right">
+                  <h4 className="text-[14px] font-bold">{data.value}</h4>
+                </td>
+              </tr>
             </tbody>
           ))}
         </table>
 
         <div className="p-5">
           <button className=" flex justify-center items-center gap-4 border-[1px] rounded-[8px] border-Soft_Gray w-[100%] dark:border-Soft_Gray_20 p-3 font-[14px] font-bold">
-           <i className="text-[25px]"> <HiDotsHorizontal /> </i> See All Transactions
+            <i className="text-[25px]">
+              {" "}
+              <HiDotsHorizontal />{" "}
+            </i>{" "}
+            See All Transactions
           </button>
         </div>
       </div>

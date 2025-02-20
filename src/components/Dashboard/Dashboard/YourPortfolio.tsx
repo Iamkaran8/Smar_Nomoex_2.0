@@ -100,7 +100,7 @@ export const YourPortfolio = () => {
           <table className="w-[100%] ">
             {PorfolioDatas.map((data, index) => (
               <tbody key={index} >
-                <tr className="" >
+                <tr className="hover:bg-Soft_Gray_20 ease-in duration-300 "  >
                   <td className="flex p-4 gap-3">
                     <img className="w-[28px]" src={data.icon} alt={data.name} />
                     <h4 className="text-[14px] hidden md:block lg:block ">
