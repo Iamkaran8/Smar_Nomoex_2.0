@@ -28,4 +28,13 @@ export interface UserDataType {
     country: string;
     mobileNo: string;
     countrycode: string;
+}
+
+
+
+// Pagination
+export interface PaginationProps {
+    totalNumberOfPage: number[];
+    currentPage: number;
+    setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
   }
