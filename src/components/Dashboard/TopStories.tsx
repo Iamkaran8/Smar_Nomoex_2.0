@@ -8,7 +8,7 @@ export const TopStories = () => {
       category: "How-to Guides",
       title: "A Complete Guide to Making Passive Income With Lending?",
       description:
-        "Chart of the to the MetaverseTrading volume for Metaverse tokens skyrocketed by a whopping 153%",
+        "Chart of the to the MetaverseTrading volume for Metaverse tokens skyrocketed by a whopping 153% ",
       posted_by: "Brijanohan Mallick",
       date: "01 Feb 22",
       difficulty: "Easy",
@@ -45,24 +45,24 @@ export const TopStories = () => {
         {articles.map((blog, i) => (
           <div className="px-5 " key={i}>
             <div className="flex flex-col  gap-5 py-5 md:flex-row">
-              <div className=" md:w-[25%] flex items-center">
+              <div className=" lg:w-[20%]  md:w-[35%] flex items-center">
                 <img
-                  className="rounded-[12px] w-[146px] h-[124px]"
+                  className="rounded-[12px] w-[100%] h-[100%]"
                   src={blog.image}
                   alt={blog.category}
                 />
               </div>
-              <div className=" w-[100%] md:w-[75%] flex flex-col gap-2">
+              <div className=" w-[100%]  lg:w-[80%] md:w-[65%] flex flex-col gap-2">
                 <div className="flex gap-3">
                   <p className="text-[12px] text-Slate_Gray font-normal">
                     {blog.date}
                   </p>
                   <p className="text-[12px] font-medium">{blog.category}</p>
                 </div>
-                <h3 className="text-[16px] leading-[24px] font-bold w-[100%] md:w-[80%]">
+                <h3 className="text-[16px] leading-[24px] font-bold w-[100%] md:w-[100%] lg:w-[80%]">
                   {blog.title}
                 </h3>
-                <p className="text-[14px] w-[100%] md:w-[80%] text-Slate_Gray leading-[21px] font-normal">
+                <p className="text-[14px] w-[100%] md:w-[100%] lg:w-[80%] text-Slate_Gray leading-[21px] font-normal">
                   {blog.description}
                 </p>
               </div>

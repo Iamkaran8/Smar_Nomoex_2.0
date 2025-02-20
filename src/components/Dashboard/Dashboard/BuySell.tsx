@@ -40,11 +40,11 @@ export const BuySell = () => {
 
   return (
     <>
-      <div className="border-[1px] border-Soft_Gray rounded-[8px] dark:border-Soft_Gray_20">
+      <div className="border-[1px] border-Soft_Gray rounded-[8px]  dark:border-Soft_Gray_20">
         <div className="border-b-[1px] border-Soft_Gray p-5 dark:border-Soft_Gray_20">
           <h3 className="text-[16x]">Start selling or buying</h3>
         </div>
-        <div className="p-5 flex justify-center flex-col gap-5">
+        <div className="p-5 flex justify-center flex-col gap-7">
           <div>
             <div
               className=" bg-[#EBF0F0] dark:bg-Light_Cyan_Gray rounded-[8px] relative  cursor-pointer"
@@ -70,7 +70,7 @@ export const BuySell = () => {
                 </div>
               </div>
               {isOpen && (
-                <div className="absolute bg-Light_Cyan_Gray w-[100%] bg-black p-2">
+                <div className="absolute bg-Light_Cyan_Gray w-[100%] bg-[#EBF0F0] dark:bg-black -mt-1 rounded-b-[8px] p-2">
                   {coinsData.map((coin) => (
                     <div className="flex p-2 gap-3 items-center hover:bg-Light_Cyan_Gray">
                       <img className="w-[18px]" src={coin.icon} />

@@ -64,6 +64,7 @@ export const YourPortfolio = () => {
     <>
       {isMobile ? (
         <div className="flex flex-col gap-2">
+          <h3 className="text-[16px] mb-2">Your Portfolio</h3>
           {PorfolioDatas.map((coin, index) => (
             <div
               key={index}
