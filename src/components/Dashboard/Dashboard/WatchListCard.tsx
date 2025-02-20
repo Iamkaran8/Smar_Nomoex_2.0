@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 // import { Pagination } from "./Pagination";
 import Eth from "../../../assets/Dummy_images/Ethereum.svg"
 import SOL from "../../../assets/Dummy_images/Solana.svg";

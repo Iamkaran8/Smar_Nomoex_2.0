@@ -1,9 +1,15 @@
-import { AssetsPage } from "../components/Dashboard/Assets/Page"
+import { LayOut } from "../components/Common/Layout/Layout"
+
+const CurrentPage = () =>{
+    return(
+        <>
+         <h1>Assets</h1>
+        </>
+    )
+}
 
 export const Assets = () =>{
     return(
-        <>
-        <AssetsPage/>
-        </>
+        <LayOut dynamic={<CurrentPage/>} title="Assets"/>
     )
 }
