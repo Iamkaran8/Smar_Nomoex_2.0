@@ -32,9 +32,17 @@ export interface UserDataType {
 
 
 
-// Pagination
+// Pagination props
 export interface PaginationProps {
     totalNumberOfPage: number[];
     currentPage: number;
     setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
-  }
+}
+
+
+// Slice propeties are listed here you can check it down based on the file name
+// NavmenuSlice.tsx
+export interface NavlinkProps { 
+    name: string; 
+    url: string
+}

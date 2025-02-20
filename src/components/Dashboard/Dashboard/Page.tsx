@@ -5,7 +5,7 @@ import { TotalBalence } from "./TotalBalence";
 import { TrendingAssets } from "../TrendingAssets";
 import { WatchLists } from "./WatchLists";
 import { YourPortfolio } from "./YourPortfolio";
-import { LayOut } from "../../Common/Layout/Layout";
+import { LayOut } from "../../Common/Layout/DashboardLayout";
 
 const CurrentPage = () => {
   return (
