@@ -1,4 +1,4 @@
-import { LayOut } from "../components/Common/Layout/Layout"
+import { LayOut } from "../components/Common/Layout/DashboardLayout"
 
 const CurrentPage = () =>{
     return(

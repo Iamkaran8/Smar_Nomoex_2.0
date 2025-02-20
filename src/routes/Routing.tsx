@@ -7,6 +7,7 @@ import { SignUp } from "../pages/AuthPages/SignUp";
 import { Dashboard } from "../pages/Dashboard";
 import { Assets } from "../pages/Assets";
 import { Transactions } from "../pages/Transactions";
+import { Markets } from "../pages/Markets";
 
 
 export const Routing = () => {
@@ -14,6 +15,7 @@ export const Routing = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/markets" element={<Markets />} />
         <Route path="signup" element={<SignUp />} />
         <Route path="signin" element={<Signin />} />
         <Route path="forget-password" element={<ForgetPassword />} />

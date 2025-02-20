@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { ThemeState } from "../../model";
+import { RootState } from "../store";
 
 // Define initial state
 const initialState: ThemeState = {
@@ -20,5 +21,6 @@ export const ThemeSlice = createSlice({
 });
 
 // Export the action
-export const { toggleTheme } = ThemeSlice.actions;
 export default ThemeSlice.reducer;
+export const { toggleTheme } = ThemeSlice.actions;
+export const Dark = (state:RootState)=>state.theme.isDark 

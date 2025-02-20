@@ -1,4 +1,4 @@
-import { LayOut } from "../components/Common/Layout/Layout";
+import { LayOut } from "../components/Common/Layout/DashboardLayout";
 import { BuySell } from "../components/Dashboard/Dashboard/BuySell";
 import { LatestTransaction } from "../components/Dashboard/Dashboard/LatestTransaction";
 import { TotalBalence } from "../components/Dashboard/Dashboard/TotalBalence";

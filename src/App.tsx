@@ -1,9 +1,9 @@
 import {useSelector } from "react-redux";
 import { Routing } from "./routes/Routing";
-import { RootState } from "./redux/store";
+import { Dark} from "./redux/slices/ThemeSlice";
 
 function App() {
-  const isDark = useSelector((state:RootState) => state.theme.isDark)
+  const isDark = useSelector(Dark)
   return (
     <>
       <div className={isDark ? 'dark' : 'light'}>
