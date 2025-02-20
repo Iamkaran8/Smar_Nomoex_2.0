@@ -120,11 +120,13 @@ export const SideNavbar = () => {
     <>
       <div className="p-4 h-[100vh] sticky top-0">
         <div>
-          <img
-            className="h-[36px] w-[150px]"
-            src={NomoexLogo}
-            alt="Nomoex_Logo"
-          />
+          <Link to={"/"}>
+            <img
+              className="h-[36px] w-[150px]"
+              src={NomoexLogo}
+              alt="Nomoex_Logo"
+            />
+          </Link>
         </div>
         <div className="mt-10">
           <p className="text-Slate_Gray text-[14px]">Navigation</p>

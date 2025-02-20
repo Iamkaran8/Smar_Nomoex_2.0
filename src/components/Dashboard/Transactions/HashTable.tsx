@@ -1,9 +1,11 @@
-import btc from "../../assets/Dummy_images/Bitcoin.svg";
-import sol from "../../assets/Dummy_images/Solana.svg";
-import ltc from "../../assets/Dummy_images/Litecoin.svg";
-import xrp from "../../assets/Dummy_images/Xrp.svg";
-import eos from "../../assets/Dummy_images/EosToken.png";
-import eth from "../../assets/Dummy_images/Ethereum.svg";
+import btc from "../../../assets/Dummy_images/Bitcoin.svg";
+import sol from "../../../assets/Dummy_images/Solana.svg";
+import ltc from "../../../assets/Dummy_images/Litecoin.svg";
+import xrp from "../../../assets/Dummy_images/Xrp.svg";
+import eos from "../../../assets/Dummy_images/EosToken.png";
+import eth from "../../../assets/Dummy_images/Ethereum.svg";
+import { Pagination } from "../Pagination";
+import { useState } from "react";
 
 export const HashTable = () => {
   const transactionsDetails = [
@@ -104,64 +106,52 @@ export const HashTable = () => {
       image: eth,
     },
   ];
+
+  const totalNumberOfPage = [...Array(Math.ceil(transactionsDetails.length / 9)).keys()];
+  const [currentPage, setCurrentPage] = useState<number>(0);
+  const Start = currentPage * 9 ;
+  const End  =  Start + 9;
+  const FilteredTransDetails = transactionsDetails.slice( Start , End);
+  
   return (
     <>
-      {/* <table className="w-[100%]   ">
-        <thead className="">
-          <tr>
-            <td className="p-5 ">Hash</td>
-            <td className="p-5 ">Time</td>
-            <td className="p-5 ">{"Amount (BTC)"}</td>
-            <td className="p-5 ">{"Amount (USD)"}</td>
-          </tr>
-        </thead>
-        <tbody className="gap-3 space-y-3">
-
-          {transactionsDetails.map((hash) => (
-            <tr
-              key={hash.id}
-              className="border-[1px] border-Soft_Gray p-2 rounded-[6px]"
-            >
-              <td className="p-5 ">{hash.hash}</td>
-              <td className="p-5 ">{hash.time}</td>
-              <td className="p-5 ">{hash.btc_amount}</td>
-              <td className="p-5 ">{hash.usd_amount}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table> */}
-
-      <div className="">
-        <div className="flex">
-          <div className="w-[60%]">
+      <div className="cont">
+        <div className="flex p-3 px-2">
+          <div className="w-[55%]">
             <h3 className="text-[12px] font-bold">Hash</h3>
           </div>
           <div className="w-[10%]">
-            <h3 className="text-[12px] font-bold">TIme</h3>
+            <h3 className="text-[12px] font-bold text-right">Time</h3>
+          </div>
+          <div className="w-[20%]">
+            <h3 className="text-[12px] font-bold text-right">Amount (BTC)</h3>
           </div>
           <div className="w-[15%]">
-            <h3 className="text-[12px] font-bold">Amount (BTC)</h3>
-          </div>
-          <div className="w-[15%]">
-            <h3 className="text-[12px] font-bold">Amount (USD)</h3>
+            <h3 className="text-[12px] font-bold text-right">Amount (USD)</h3>
           </div>
         </div>
-        {transactionsDetails.map((hash) => (
-          <div className="flex">
-            <div className="w-[60%]">
-              <img src={hash.image} alt={hash.btc_amount} /> <p>{hash.hash}</p>
+        {FilteredTransDetails.map((hash) => (
+          <div className="flex p-3 border-[1px] border-Soft_Gray_20 rounded-[6px]  mb-2 hover:bg-Soft_Gray_20 ease-in duration-300">
+            <div className="w-[55%] flex gap-3">
+              <img
+                className="h-[24px] w-[24px]"
+                src={hash.image}
+                alt={hash.btc_amount}
+              />{" "}
+              <p className="text-[14px] font-normal leading-[21px]">{hash.hash}</p>
             </div>
             <div className="w-[10%]">
-              <p>{hash.time}</p>
+              <p className="text-right text-Slate_Gray text-[14px] font-normal leading-[21px]">{hash.time}</p>
+            </div>
+            <div className="w-[20%]">
+              <p className="text-right text-[14px] font-normal">{hash.btc_amount}</p>
             </div>
             <div className="w-[15%]">
-              <p>{hash.btc_amount}</p>
-            </div>
-            <div className="w-[15%]">
-              <p>{hash.usd_amount}</p>
+              <p className="text-right text-[14px] font-bold">{hash.usd_amount}</p>
             </div>
           </div>
         ))}
+        <Pagination totalNumberOfPage ={totalNumberOfPage} currentPage ={0} setCurrentPage ={setCurrentPage}  />
       </div>
     </>
   );
