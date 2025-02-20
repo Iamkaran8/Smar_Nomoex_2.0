@@ -118,7 +118,6 @@ export const SideNavbar = () => {
         </div>
         <div className="mt-10">
           <p className="text-Slate_Gray text-[14px]">Navigation</p>
-
           <div className="flex flex-col">
             {Navigation.map((item) => (
               <Link
