@@ -1,13 +1,13 @@
 import { IoMdNotificationsOutline } from "react-icons/io";
 import ProfileImg from "../../../assets//Dummy_images/profile_pic.png";
 
-export const HeaderNav = () => {
+export const HeaderNav = ({ title }: { title: string }) => {
   return (
     <>
-      <div className="border-[0px] md:border-b-[1px]  border-b-Soft_Gray cont flex justify-between py-4 dark:border-Soft_Gray_20">
+      <div className="border-[0px] md:border-b-[1px] sticky top-0 border-b-Soft_Gray flex justify-between p-4 dark:border-Soft_Gray_20 bg-white dark:bg-black">
         <div className=" flex items-center">
           <h2 className="text-[24px] mb-0 hidden md:block lg:block">
-            Dashboard
+            {title}
           </h2>
         </div>
         <div className="flex gap-5">
