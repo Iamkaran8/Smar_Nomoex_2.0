@@ -1,6 +1,6 @@
 // import { LayOut } from "../components/Common/Layout/Layout";
 import { LayOut } from "../components/Common/Layout/DashboardLayout";
-import { HashTable } from "../components/Transactions/HashTable";
+import { HashTable } from "../components/Dashboard/Transactions/HashTable";
 
 
 const CurrentPage = () => {
@@ -9,6 +9,7 @@ const CurrentPage = () => {
       {/* Total Balance Section */}
       <div className="p-5">
         <HashTable/>
+        
       </div>
 
       {/* Watchlists and Buy/Sell */}
@@ -43,7 +44,7 @@ const CurrentPage = () => {
     </>
   );
 };
-    
+
 export const Transactions = () => {
   return (
     <>

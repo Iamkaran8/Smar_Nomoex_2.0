@@ -1,6 +1,10 @@
 import { PaginationProps } from "../../model";
 
-export const Pagination = ({ totalNumberOfPage, currentPage, setCurrentPage}: PaginationProps) => {
+export const Pagination = ({
+  totalNumberOfPage,
+  currentPage,
+  setCurrentPage,
+}: PaginationProps) => {
   return (
     <>
       {/* Pagination Section */}
@@ -16,8 +20,9 @@ export const Pagination = ({ totalNumberOfPage, currentPage, setCurrentPage}: Pa
           {totalNumberOfPage.map((num, i) => (
             <button
               key={i}
-              className={`${currentPage === num ? "bg-Bright_Blue text-white " : ""
-                } font-bold text-black  hover:text-white  dark:text-white ease-in duration-300 h-[40px] w-[40px] rounded-[8px] hover:bg-Bright_Blue`}
+              className={`${
+                currentPage === num ? "bg-Bright_Blue text-white " : ""
+              } font-bold text-black  hover:text-white  dark:text-white ease-in duration-300 h-[40px] w-[40px] rounded-[8px] hover:bg-Bright_Blue`}
               onClick={() => setCurrentPage(num)}
             >
               {num}
