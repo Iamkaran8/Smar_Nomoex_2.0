@@ -4,7 +4,7 @@ import { NavlinkProps } from "../../model";
 
 const initialState:NavlinkProps[] = [
     { name: "Prices", url: "/prices" },
-    { name: "Market", url: "/market" },
+    { name: "Market", url: "/markets" },
     { name: "Exchange", url: "/exchange" },
     { name: "Learn", url: "/learn-earn" },
     { name: "Updates", url: "/updates" },

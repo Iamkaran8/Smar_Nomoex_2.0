@@ -1,5 +1,5 @@
 import { IoMdNotificationsOutline } from "react-icons/io";
-import ProfileImg from "../../../assets//Dummy_images/profile_pic.png";
+import ProfileImg from "../../assets//Dummy_images/profile_pic.png";
 
 export const HeaderNav = ({ title }: { title: string }) => {
   return (

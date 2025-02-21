@@ -1,4 +1,4 @@
-import NomoexLogo from "../../../assets/Nomoex_Full_logo.svg";
+import NomoexLogo from "../../assets/Nomoex_Full_logo.svg";
 import { Link } from "react-router-dom";
 
 export const SideNavbar = () => {

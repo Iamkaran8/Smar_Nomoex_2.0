@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import useScreen from "../../../customHooks/useScreen";
+import useScreen from "../../customHooks/useScreen";
 
 export const MobileHeader = () => {
   const { isMobile } = useScreen();
