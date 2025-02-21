@@ -37,6 +37,7 @@ export interface PaginationProps {
     totalNumberOfPage: number[];
     currentPage: number;
     setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
+    justify:string
 }
 
 

@@ -1,7 +1,6 @@
-
 import { useState } from "react";
 // import { Pagination } from "./Pagination";
-import Eth from "../../../assets/Dummy_images/Ethereum.svg"
+import Eth from "../../../assets/Dummy_images/Ethereum.svg";
 import SOL from "../../../assets/Dummy_images/Solana.svg";
 import ltc from "../../../assets/Dummy_images/Litecoin.svg";
 import { Pagination } from "../Pagination";
@@ -65,45 +64,44 @@ export const WatchListCard = () => {
       percentage: "+12.53%",
     },
     {
-        id: 8,
-        title: "Top gainer (24h)",
-        name: "Ethereum",
-        symbol: "ETH",
-        image: Eth,
-        percentage: "+1.53%",
-      },
-      {
-        id: 9,
-        title: "Highest vol (24h)",
-        name: "Solana",
-        symbol: "SOL",
-        image: SOL,
-        percentage: "+2.43%",
-      },
-      {
-        id: 10,
-        title: "Top gainer (24h)",
-        name: "Ethereum",
-        symbol: "ETH",
-        image: Eth,
-        percentage: "+1.53%",
-      },
-      {
-        id: 11,
-        title: "Highest vol (24h)",
-        name: "Solana",
-        symbol: "SOL",
-        image: SOL,
-        percentage: "+2.43%",
-      },
+      id: 8,
+      title: "Top gainer (24h)",
+      name: "Ethereum",
+      symbol: "ETH",
+      image: Eth,
+      percentage: "+1.53%",
+    },
+    {
+      id: 9,
+      title: "Highest vol (24h)",
+      name: "Solana",
+      symbol: "SOL",
+      image: SOL,
+      percentage: "+2.43%",
+    },
+    {
+      id: 10,
+      title: "Top gainer (24h)",
+      name: "Ethereum",
+      symbol: "ETH",
+      image: Eth,
+      percentage: "+1.53%",
+    },
+    {
+      id: 11,
+      title: "Highest vol (24h)",
+      name: "Solana",
+      symbol: "SOL",
+      image: SOL,
+      percentage: "+2.43%",
+    },
   ];
 
-const totalNumberOfPage = [...Array(Math.ceil(WatchList.length / 4)).keys()];
-const [currentPage, setCurrentPage] = useState<number>(0);
-const Start = currentPage * 4 ;
-const End  =  Start + 4;
-const prod = WatchList.slice( Start , End);
-
+  const totalNumberOfPage = [...Array(Math.ceil(WatchList.length / 4)).keys()];
+  const [currentPage, setCurrentPage] = useState<number>(0);
+  const Start = currentPage * 4;
+  const End = Start + 4;
+  const prod = WatchList.slice(Start, End);
 
   return (
     <>
@@ -133,8 +131,12 @@ const prod = WatchList.slice( Start , End);
       </div>
 
       {/* Pagination Section */}
-      <Pagination  totalNumberOfPage={totalNumberOfPage}  currentPage={currentPage} setCurrentPage={setCurrentPage}  />
-  
+      <Pagination
+        totalNumberOfPage={totalNumberOfPage}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        justify="between"
+      />
     </>
   );
 };
