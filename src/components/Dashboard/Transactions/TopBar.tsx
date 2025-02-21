@@ -1,10 +1,10 @@
-
-
 import { CoinConversion } from "./CoinConversion";
 import { CoinExplorer } from "./CoinExplorer";
 import { SearchBar } from "./SearchBar";
 
+
 export const TopBar = () => {
+  
   return (
     <>
       <div className="cont flex ">
