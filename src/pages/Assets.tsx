@@ -1,4 +1,4 @@
-import { LayOut } from "../components/Common/Layout/DashboardLayout"
+import { DashboardLayout } from "../components/Common/Layout/DashboardLayout"
 
 const CurrentPage = () =>{
     return(
@@ -10,6 +10,6 @@ const CurrentPage = () =>{
 
 export const Assets = () =>{
     return(
-        <LayOut dynamic={<CurrentPage/>} title="Assets"/>
+        <DashboardLayout dynamic={<CurrentPage/>} title="Assets"/>
     )
 }

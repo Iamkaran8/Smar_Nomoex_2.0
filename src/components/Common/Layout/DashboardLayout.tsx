@@ -9,7 +9,7 @@ interface LayOutProps {
   title: string;
 }
 
-export const LayOut = ({ dynamic, title }: LayOutProps) => {
+export const DashboardLayout = ({ dynamic, title }: LayOutProps) => {
   return (
     <>
       <div className="bg-white dark:bg-black text-black dark:text-white flex flex-col md:flex-row min-h-screen">

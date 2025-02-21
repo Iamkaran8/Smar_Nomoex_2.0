@@ -1,13 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 import themeReducer from '../redux/slices/ThemeSlice'
 import authReducer  from "./slices/AuthSlice";
-import navlinksReducer from './slices/NavmenusSlice'
+import navlinksReducer from './slices/NavmenusSlice';
+import cryptoReducer from './slices/CryptoSlice'
 
 export const store = configureStore({
     reducer:{
         theme : themeReducer,
         auth : authReducer,
         navmenus: navlinksReducer,
+        crypto: cryptoReducer,
     }
 })
 
