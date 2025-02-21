@@ -1,4 +1,5 @@
-import { LayOut } from "../components/Common/Layout/Layout";
+// import { LayOut } from "../components/Common/Layout/Layout";
+import { LayOut } from "../components/Common/Layout/DashboardLayout";
 import { HashTable } from "../components/Transactions/HashTable";
 
 
@@ -42,7 +43,7 @@ const CurrentPage = () => {
     </>
   );
 };
-
+    
 export const Transactions = () => {
   return (
     <>

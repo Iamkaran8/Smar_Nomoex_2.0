@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
 import { CopyRight } from "../CopyRight";
-import { HeaderNav } from "./HeaderNav";
-import { SideNavbar } from "./SideNavbar";
-import { MobileHeader } from "./MobileHeader";
+import { HeaderNav } from "../DashNav";
+import { SideNavbar } from "../DashSidebar";
+import { MobileHeader } from "../DashFooter";
 
 interface LayOutProps {
   dynamic: ReactNode;
