@@ -75,7 +75,7 @@ export const BuySell = () => {
           </div>
         </div>
         <div className="flex justify-between items-center">
-          <div>
+          <div> 
             <h2 className="text-[28px] font-extrabold">$0.00</h2>
             <p className="text-Slate_Gray text-[14px]">0 BTC ~ $0.00</p>
           </div>

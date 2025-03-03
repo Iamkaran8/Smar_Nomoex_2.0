@@ -53,7 +53,7 @@ export const Navbar = () => {
         <div className="dark:z-20 z-20 shadow-sm bg-white dark:bg-black sticky border-b-[1px] border-Soft_Gray_20 top-0">
             <div className="cont py-5">
                 <div className="flex justify-between items-center">
-                    <img src={nomoex} className="w-[120px]" alt="nomoex" />
+                    <Link to="/" ><img src={nomoex} className="w-[120px]" alt="nomoex" /></Link>
 
                     {isTablet || isMobile ? (
                         <button onClick={() => setIsOpen(!isOpen)} className="border-[1px] border-Soft_Gray px-5 py-2 rounded-[8px] font-bold dark:text-white">

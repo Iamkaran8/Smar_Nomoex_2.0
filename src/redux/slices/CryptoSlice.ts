@@ -1,4 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
+import btc from "../../assets/Dummy_images/Bitcoin.svg";
+import Ethereum from "../../assets/Dummy_images/Ethereum.svg";
+import xrp from "../../assets/Dummy_images/Xrp.svg";
+import litecoin from "../../assets/Dummy_images/Litecoin.svg";
+import Tether from "../../assets/Dummy_images/Tether.svg";
+import SOL from '../../assets/Dummy_images/Solana.svg'
 import { RootState } from "../store";
 import btc from "../../assets/Dummy_images/Bitcoin.svg";
 import eth from "../../assets/Dummy_images/Ethereum.svg";
@@ -31,6 +37,108 @@ const initialState = {
     { rank: 13, name: "Uniswap", symbol: "UNI", price: "$8.9", change: "+3.21%", marketCap: "$5.4B", supply: "453M UNI", icon: uni, category: "DeFi" },
     // Add 87 more cryptocurrencies with unique data, spread across different categories...
   ],
+  categories: [
+    "All coins",
+    "Watchlist",
+    "Top Gainers",
+    "Top Losers",
+    "Metaverse",
+    "Ethereum Alternatives",
+    "DeFi",
+    "Utility",
+    "Meme Coins"
+  ],
+  watchList:[
+    {
+      id: 1,
+      title: "Top gainer (24h)",
+      name: "Ethereum",
+      symbol: "ETH",
+      image: Ethereum,
+      percentage: "+1.53%",
+    },
+    {
+      id: 2,
+      title: "Highest vol (24h)",
+      name: "Solana",
+      symbol: "SOL",
+      image: SOL,
+      percentage: "+2.43%",
+    },
+    {
+      id: 3,
+      title: "New listing",
+      name: "Litecoin",
+      symbol: "LTC",
+      image: litecoin,
+      percentage: "+12.53%",
+    },
+    {
+      id: 4,
+      title: "Highest vol (24h)",
+      name: "Bitcoin",
+      symbol: "BTC",
+      image: Ethereum,
+      percentage: "+12.53%",
+    },
+    {
+      id: 5,
+      title: "Highest vol (24h)",
+      name: "Bitcoin",
+      symbol: "BTC",
+      image: SOL,
+      percentage: "+12.53%",
+    },
+    {
+      id: 6,
+      title: "Highest vol (24h)",
+      name: "Bitcoin",
+      symbol: "BTC",
+      image: litecoin,
+      percentage: "+12.53%",
+    },
+    {
+      id: 7,
+      title: "Highest vol (24h)",
+      name: "Bitcoin",
+      symbol: "BTC",
+      image: SOL,
+      percentage: "+12.53%",
+    },
+    {
+      id: 8,
+      title: "Top gainer (24h)",
+      name: "Ethereum",
+      symbol: "ETH",
+      image: Ethereum,
+      percentage: "+1.53%",
+    },
+    {
+      id: 9,
+      title: "Highest vol (24h)",
+      name: "Solana",
+      symbol: "SOL",
+      image: SOL,
+      percentage: "+2.43%",
+    },
+    {
+      id: 10,
+      title: "Top gainer (24h)",
+      name: "Ethereum",
+      symbol: "ETH",
+      image: Ethereum,
+      percentage: "+1.53%",
+    },
+    {
+      id: 11,
+      title: "Highest vol (24h)",
+      name: "Solana",
+      symbol: "SOL",
+      image: SOL,
+      percentage: "+2.43%",
+    },
+ 
+  ]
 };
 
 const CryptoSlice = createSlice({
@@ -41,3 +149,4 @@ const CryptoSlice = createSlice({
 
 export default CryptoSlice.reducer;
 export const selectcryptodata = (state: RootState) => state.crypto.cryptodata;
+export const selectWatchListdata = (state:RootState) => state.crypto.watchList; 

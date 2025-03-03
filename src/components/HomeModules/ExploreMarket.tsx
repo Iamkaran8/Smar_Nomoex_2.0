@@ -6,6 +6,7 @@ import litecoin from "../../assets/Dummy_images/Litecoin.svg";
 import Tether from "../../assets/Dummy_images/Tether.svg";
 import graph from "../../assets/cointpricegraph.png";
 import { HiDotsVertical } from "react-icons/hi";
+import { Link } from "react-router-dom";
 const marketData = [
   {
     rank: 1,
@@ -155,9 +156,9 @@ export const ExploreMarket = () => {
                   </td>
                   <td className="p-2 text-right   ">
                     <div className="flex items-center gap-2">
-                      <button className="bg-gray-800 px-4 py-2 border-[1px] bg-white rounded-[8px] text-[14px] dark:bg-black">
+                      <Link to={"/signup"} className="bg-gray-800 px-4 py-2 border-[1px] bg-white rounded-[8px] text-[14px] dark:bg-black">
                         Trade
-                      </button>
+                      </Link>
                       <div className="hidden md:hidden lg:block">
                         <button className="">
                           <HiDotsVertical />
