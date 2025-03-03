@@ -1,102 +1,11 @@
 import { useState } from "react";
-// import { Pagination } from "./Pagination";
-import Eth from "../../../assets/Dummy_images/Ethereum.svg";
-import SOL from "../../../assets/Dummy_images/Solana.svg";
-import ltc from "../../../assets/Dummy_images/Litecoin.svg";
 import { Pagination } from "../Pagination";
+import { useSelector } from "react-redux";
+import { selectWatchListdata } from "../../../redux/slices/CryptoSlice";
 
 export const WatchListCard = () => {
-  const WatchList = [
-    {
-      id: 1,
-      title: "Top gainer (24h)",
-      name: "Ethereum",
-      symbol: "ETH",
-      image: Eth,
-      percentage: "+1.53%",
-    },
-    {
-      id: 2,
-      title: "Highest vol (24h)",
-      name: "Solana",
-      symbol: "SOL",
-      image: SOL,
-      percentage: "+2.43%",
-    },
-    {
-      id: 3,
-      title: "New listing",
-      name: "Litecoin",
-      symbol: "LTC",
-      image: ltc,
-      percentage: "+12.53%",
-    },
-    {
-      id: 4,
-      title: "Highest vol (24h)",
-      name: "Bitcoin",
-      symbol: "BTC",
-      image: Eth,
-      percentage: "+12.53%",
-    },
-    {
-      id: 5,
-      title: "Highest vol (24h)",
-      name: "Bitcoin",
-      symbol: "BTC",
-      image: SOL,
-      percentage: "+12.53%",
-    },
-    {
-      id: 6,
-      title: "Highest vol (24h)",
-      name: "Bitcoin",
-      symbol: "BTC",
-      image: ltc,
-      percentage: "+12.53%",
-    },
-    {
-      id: 7,
-      title: "Highest vol (24h)",
-      name: "Bitcoin",
-      symbol: "BTC",
-      image: SOL,
-      percentage: "+12.53%",
-    },
-    {
-      id: 8,
-      title: "Top gainer (24h)",
-      name: "Ethereum",
-      symbol: "ETH",
-      image: Eth,
-      percentage: "+1.53%",
-    },
-    {
-      id: 9,
-      title: "Highest vol (24h)",
-      name: "Solana",
-      symbol: "SOL",
-      image: SOL,
-      percentage: "+2.43%",
-    },
-    {
-      id: 10,
-      title: "Top gainer (24h)",
-      name: "Ethereum",
-      symbol: "ETH",
-      image: Eth,
-      percentage: "+1.53%",
-    },
-    {
-      id: 11,
-      title: "Highest vol (24h)",
-      name: "Solana",
-      symbol: "SOL",
-      image: SOL,
-      percentage: "+2.43%",
-    },
-  ];
 
+  const WatchList = useSelector(selectWatchListdata)
   const totalNumberOfPage = [...Array(Math.ceil(WatchList.length / 4)).keys()];
   const [currentPage, setCurrentPage] = useState<number>(0);
   const Start = currentPage * 4;
