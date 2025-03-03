@@ -1,15 +1,20 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { PageLayout } from "../components/Common/Layout/PagesLayout";
-import { selectcategories, selectcryptodata } from "../redux/slices/CryptoSlice"; // Import selector from Redux
+import { selectcryptodata } from "../redux/slices/CryptoSlice"; // Import selector from Redux
 import useScreen from "../customHooks/useScreen";
 import { Pagination } from "../components/Dashboard/Pagination";
+import graph from '../assets/cointpricegraph.png'
 
 const CurrentPage = () => {
-    const categories = useSelector(selectcategories); // Get categories from Redux
     const cryptodata = useSelector(selectcryptodata);
+    const categories = [...new Set(cryptodata.map((data) => data.category))];
     const { isMobile } = useScreen();
     const [activeCategory, setActiveCategory] = useState<string | null>(null); // Initially null
+
+    const CategoryFilter = ({category}) =>{
+        setActiveCategory(category)
+    }
 
     // Set the first category as active once categories are available
     useEffect(() => {
@@ -18,16 +23,17 @@ const CurrentPage = () => {
         }
     }, [categories, activeCategory]);
 
-    const totalNumberOfPage = [...Array(Math.ceil(cryptodata.length / 2)).keys()];
+    const totalNumberOfPage = [...Array(Math.ceil(cryptodata.length / 9)).keys()];
     const [currentPage, setCurrentPage] = useState<number>(0);
-    const Start = currentPage * 2;
-    const End = Start + 2;
+    const Start = currentPage * 9;
+    const End = Start + 9;
     const FilteredTransDetails = cryptodata.slice(Start, End);
 
     return (
         <div className="cont py-10">
             <h1>Top Cryptocurrency Prices</h1>
             {/* Categories menu */}
+            <div className=" hidden lg:block">
             <div className="flex p-3 gap-1 flex-wrap border border-Soft_Gray w-fit rounded-lg">
                 {categories.map((category, index) => (
                     <button
@@ -41,7 +47,8 @@ const CurrentPage = () => {
                     </button>
                 ))}
             </div>
-            <div>
+            </div>
+            <div className="py-10">
                 {isMobile ? (
                     <div className="flex flex-col gap-2">
                         {FilteredTransDetails.map((coin, index) => (
@@ -103,11 +110,11 @@ const CurrentPage = () => {
                                 {FilteredTransDetails.map((coin, index) => (
                                     <tr key={index} className="border-b border-gray-300">
                                         <td className="p-5 flex items-center gap-2">
-                                            {coin.rank}{" "}
+                                            {coin.rank}
                                             <img className="px-2" src={coin.icon} alt={coin.name} />{" "}
                                             <span className="font-bold lg:block md:hidden">
                                                 {coin.name}
-                                            </span>{" "}
+                                            </span>
                                             <span className="text-gray-500">{coin.symbol}</span>
                                         </td>
                                         <td className="p-5 text-right">{coin.marketCap}</td>
@@ -122,12 +129,19 @@ const CurrentPage = () => {
                                         >
                                             {coin.change}
                                         </td>
-                                        <td className="p-5 text-right"></td>
+                                        <td
+                                            className={`p-2 text-right ${coin.change.startsWith("+")
+                                                ? "text-green-500"
+                                                : "text-red-500"
+                                                }`}
+                                        >
+                                            {coin.change}
+                                        </td>
                                         <td className="p-5 text-right md:hidden lg:block">
-                                            {coin.supply}
+                                        <img src={graph} alt="graph" className="display inline"/>
                                         </td>
                                         <td className="p-2 text-right   ">
-                                            <div className="flex items-center gap-2">
+                                            <div className="flex items-center justify-end gap-2">
                                                 <button className="px-4 py-2 border-[1px] bg-white rounded-[8px] text-[14px] dark:bg-black">
                                                     Buy
                                                 </button>
