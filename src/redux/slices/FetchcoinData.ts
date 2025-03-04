@@ -1,9 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const fetchCoinData = createAsyncThunk("coins/fetchCoinData", async () =>{
-    const API_URL = 
+    const API_URL =  
     const API_KEY =
-    const response = await axio
+    // const response = await axio
 })
 
 const initialState = {
@@ -18,8 +18,8 @@ export const FetchCoinSlice = createSlice({
     reducers:{
 
     },
-    extraReducers:(builder)=>{
-        builder
-        .addCase()
-    }
+    // extraReducers:(builder)=>{
+    //     builder
+    //     .addCase()
+    // }
 })

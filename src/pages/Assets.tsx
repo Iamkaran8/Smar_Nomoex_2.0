@@ -1,15 +1,13 @@
-import { DashboardLayout } from "../components/Common/Layout/DashboardLayout"
+import { DashboardLayout } from "../components/Common/Layout/DashboardLayout";
 
-const CurrentPage = () =>{
-    return(
-        <>
-         <h1>Assets</h1>
-        </>
-    )
-}
+const CurrentPage = () => {
+  return (
+    <>
+      <h1>Assets</h1>
+    </>
+  );
+};
 
-export const Assets = () =>{
-    return(
-        <DashboardLayout dynamic={<CurrentPage/>} title="Assets"/>
-    )
-}
+export const Assets = () => {
+  return <DashboardLayout dynamic={<CurrentPage />} title="Assets" />;
+};

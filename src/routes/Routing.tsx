@@ -9,7 +9,6 @@ import { Assets } from "../pages/Assets";
 import { Transactions } from "../pages/Transactions";
 import { Prices } from "../pages/Prices";
 
-
 export const Routing = () => {
   return (
     <BrowserRouter>
@@ -19,9 +18,9 @@ export const Routing = () => {
         <Route path="signup" element={<SignUp />} />
         <Route path="signin" element={<Signin />} />
         <Route path="forget-password" element={<ForgetPassword />} />
-        <Route path="dashboard" element={<Dashboard/>}/>
-        <Route path="assets" element={<Assets/>}/>
-        <Route path="transactions" element={<Transactions/>}/>
+        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="assets" element={<Assets />} />
+        <Route path="transactions" element={<Transactions />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

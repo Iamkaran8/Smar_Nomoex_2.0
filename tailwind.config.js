@@ -20,6 +20,7 @@ export default {
         "Soft_Gray_15": 'rgba(207, 219, 213, 0.15);' /* #CFDBD5 15% */,
         "Pale_Ice_Blue" : "rgba(235, 240, 240, 0.65)"  /* #EBF0F0 65% */,
         "Light_Cyan_Gray" : "rgba(235, 240, 240, 0.1)"  /* #EBF0F01A */,
+        "Gold" : "rgba(244, 201, 82, 1)",
         "Red" : '#CD0000',
         "Green" : "#23E33E"
         
