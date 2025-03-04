@@ -1,9 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import btc from "../../assets/Dummy_images/Bitcoin.svg";
 import Ethereum from "../../assets/Dummy_images/Ethereum.svg";
-import xrp from "../../assets/Dummy_images/Xrp.svg";
 import litecoin from "../../assets/Dummy_images/Litecoin.svg";
-import Tether from "../../assets/Dummy_images/Tether.svg";
 import SOL from '../../assets/Dummy_images/Solana.svg'
 import { RootState } from "../store";
 import btc from "../../assets/Dummy_images/Bitcoin.svg";
@@ -34,8 +31,7 @@ const initialState = {
     { rank: 10, name: "Shiba Inu", symbol: "SHIB", price: "$0.000012", change: "+9.02%", marketCap: "$8.3B", supply: "589T SHIB", icon: shib, category: "Meme Coins" },
     { rank: 11, name: "Avalanche", symbol: "AVAX", price: "$22.5", change: "+6.45%", marketCap: "$7.9B", supply: "220M AVAX", icon: avax, category: "Ethereum Alternatives" },
     { rank: 12, name: "Chainlink", symbol: "LINK", price: "$15.2", change: "+4.36%", marketCap: "$6.2B", supply: "467M LINK", icon: link, category: "Utility" },
-    { rank: 13, name: "Uniswap", symbol: "UNI", price: "$8.9", change: "+3.21%", marketCap: "$5.4B", supply: "453M UNI", icon: uni, category: "DeFi" },
-    // Add 87 more cryptocurrencies with unique data, spread across different categories...
+    { rank: 13, name: "Uniswap", symbol: "UNI", price: "$8.9", change: "+3.21%", marketCap: "$5.4B", supply: "453M UNI", icon: uni, category: "DeFi" }
   ],
   categories: [
     "All coins",
@@ -48,7 +44,7 @@ const initialState = {
     "Utility",
     "Meme Coins"
   ],
-  watchList:[
+  watchList: [
     {
       id: 1,
       title: "Top gainer (24h)",
@@ -137,7 +133,7 @@ const initialState = {
       image: SOL,
       percentage: "+2.43%",
     },
- 
+
   ]
 };
 
@@ -149,4 +145,4 @@ const CryptoSlice = createSlice({
 
 export default CryptoSlice.reducer;
 export const selectcryptodata = (state: RootState) => state.crypto.cryptodata;
-export const selectWatchListdata = (state:RootState) => state.crypto.watchList; 
+export const selectWatchListdata = (state: RootState) => state.crypto.watchList; 
