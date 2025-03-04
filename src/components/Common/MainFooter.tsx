@@ -31,14 +31,10 @@ export const MainFooter = () => {
               <h3>Follow us</h3>
               <div className="flex my-5 gap-2">
                 {Socials.map((item, index) => {
-                  const IconComponent = item.icon;
                   return (
                     <a href={item.url} key={index}>
-                      <div className="p-4 border border-transparent hover:border-Soft_Gray_20 rounded-lg">
-                        <IconComponent
-                          size={24}
-                          color={isDark ? item.color_dark : item.color_light}
-                        />
+                      <div className="p-4 border border-transparent hover:border-Soft_Gray_20 rounded-lg ">
+                        {item.icon(isDark ? item.color_dark : item.color_light)}
                       </div>
                     </a>
                   );
@@ -57,7 +53,10 @@ export const MainFooter = () => {
                       key={idx}
                       className="text-Slate_Gray font-semibold cursor-pointer"
                     >
-                      <Link className="dark:hover:text-white hover:text-black transition-all duration-300" to={link.url}>
+                      <Link
+                        className="dark:hover:text-white hover:text-black transition-all duration-300"
+                        to={link.url}
+                      >
                         <h5>{link.name}</h5>
                       </Link>
                     </li>

@@ -1,4 +1,4 @@
-import { IoMdNotificationsOutline } from "react-icons/io";
+
 import ProfileImg from "../../assets//Dummy_images/profile_pic.png";
 
 export const HeaderNav = ({ title }: { title: string }) => {
@@ -19,7 +19,7 @@ export const HeaderNav = ({ title }: { title: string }) => {
           </button>
           <div className="hidden md:block lg:block">
             <button className="border-[1px] border-Soft_Gray rounded-[8px] dark:border-Soft_Gray_20 p-2 leading-[21px] h-[40px] w-[40px] flex  justify-center items-center ">
-              <IoMdNotificationsOutline />
+            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 -960 960 960"  fill="currentColor"><path d="M160-200v-80h80v-280q0-83 50-147.5T420-792v-28q0-25 17.5-42.5T480-880q25 0 42.5 17.5T540-820v28q80 20 130 84.5T720-560v280h80v80H160Zm320-300Zm0 420q-33 0-56.5-23.5T400-160h160q0 33-23.5 56.5T480-80ZM320-280h320v-280q0-66-47-113t-113-47q-66 0-113 47t-47 113v280Z"/></svg>
             </button>
           </div>
 

@@ -127,7 +127,7 @@ export const YourPortfolio = () => {
             <button className=" flex justify-center items-center gap-4 dark:border-Soft_Gray_20 border-[1px] rounded-[8px] border-Soft_Gray w-[100%] p-3 font-[14px] font-bold">
               <i className="text-[25px]">
                 {" "}
-                <HiDotsHorizontal />{" "}
+                <svg xmlns="http://www.w3.org/2000/svg" height="35px" viewBox="0 -960 960 960" width="35px" fill="currentColor"><path d="M240-400q-33 0-56.5-23.5T160-480q0-33 23.5-56.5T240-560q33 0 56.5 23.5T320-480q0 33-23.5 56.5T240-400Zm240 0q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm240 0q-33 0-56.5-23.5T640-480q0-33 23.5-56.5T720-560q33 0 56.5 23.5T800-480q0 33-23.5 56.5T720-400Z"/></svg>
               </i>{" "}
               See All Assets
             </button>

@@ -4,6 +4,8 @@ const CurrentPage = () => {
   return (
     <>
       <h1>Assets</h1>
+      
+      
     </>
   );
 };

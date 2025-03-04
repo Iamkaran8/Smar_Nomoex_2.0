@@ -1,10 +1,10 @@
-import { IconType } from "react-icons";
+
 
 // utility types
 export interface SocialProps {
     name: string,
     url: string,
-    icon: IconType; // Represents an imported React icon component
+    icon: any; 
     color_light: string,
     color_dark: string,
 }
