@@ -8,8 +8,6 @@ import { Dashboard } from "../pages/Dashboard";
 import { Assets } from "../pages/Assets";
 import { Transactions } from "../pages/Transactions";
 import { Prices } from "../pages/Prices";
-import { Chart } from "../components/chart";
-
 
 export const Routing = () => {
   return (
@@ -20,14 +18,10 @@ export const Routing = () => {
         <Route path="signup" element={<SignUp />} />
         <Route path="signin" element={<Signin />} />
         <Route path="forget-password" element={<ForgetPassword />} />
-        <Route path="dashboard" element={<Dashboard/>}/>
-        <Route path="assets" element={<Assets/>}/>
-        <Route path="transactions" element={<Transactions/>}/>
-
-        {/* /// Chart Testing Page */}
-        <Route path="/chart" element={<Chart/>} />
+        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="assets" element={<Assets />} />
+        <Route path="transactions" element={<Transactions />} />
         <Route path="*" element={<NotFound />} />
-        
       </Routes>
     </BrowserRouter>
   );
