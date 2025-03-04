@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mui/material": "^6.4.6",
+    "@mui/styled-engine-sc": "^6.4.6",
     "@reduxjs/toolkit": "^2.5.1",
     "axios": "^1.8.1",
     "chart.js": "^4.4.8",
@@ -24,6 +26,7 @@
     "react-slick": "^0.30.3",
     "react-toastify": "^11.0.3",
     "recharts": "^2.15.1",
+    "styled-components": "^6.1.15",
     "swiper": "^11.2.4"
   },
   "devDependencies": {
