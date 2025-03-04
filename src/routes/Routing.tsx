@@ -8,6 +8,7 @@ import { Dashboard } from "../pages/Dashboard";
 import { Assets } from "../pages/Assets";
 import { Transactions } from "../pages/Transactions";
 import { Prices } from "../pages/Prices";
+import { Chart } from "../components/chart";
 
 
 export const Routing = () => {
@@ -22,7 +23,11 @@ export const Routing = () => {
         <Route path="dashboard" element={<Dashboard/>}/>
         <Route path="assets" element={<Assets/>}/>
         <Route path="transactions" element={<Transactions/>}/>
+
+        {/* /// Chart Testing Page */}
+        <Route path="/chart" element={<Chart/>} />
         <Route path="*" element={<NotFound />} />
+        
       </Routes>
     </BrowserRouter>
   );
