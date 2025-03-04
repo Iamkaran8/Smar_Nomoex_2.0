@@ -7,6 +7,7 @@ import Tether from "../../assets/Dummy_images/Tether.svg";
 import graph from "../../assets/cointpricegraph.png";
 import { HiDotsVertical } from "react-icons/hi";
 import { Link } from "react-router-dom";
+import "../../App.css";
 const marketData = [
   {
     rank: 1,
@@ -99,50 +100,75 @@ export const ExploreMarket = () => {
           ))}
         </div>
       ) : (
-        <div className="border border-gray-300 rounded-lg">
-          <table className="w-full rounded-lg bg-white dark:bg-black">
-            <thead>
-              <tr className="border-b border-gray-300 text-center">
+        <div className="border border-gray-300 rounded-lg ">
+          <table className="w-full  rounded-lg bg-white dark:bg-black">
+            <thead className="">
+              <tr className="border-b border-gray-300 text-center ">
                 <th className="p-5 text-left ">
-                  <h6>Coin</h6>
+                  <h6 className="text-Soft_White">Coin</h6>
                 </th>
                 <th className="p-5 text-right">
-                  <h6>Price</h6>
+                  <h6 className="text-Soft_White">Price</h6>
                 </th>
                 <th className="p-5 text-right">
                   <h6></h6>
                 </th>
                 <th className="p-5 md:p-2 lg:p-5 text-right">
-                  <h6>Change 7h</h6>
+                  <h6 className="text-Soft_White">Change 7h</h6>
                 </th>
                 <th className="p-5 text-right">
-                  <h6>Market Cap</h6>
+                  <h6 className="text-Soft_White">Market Cap</h6>
                 </th>
                 <th className="p-5  text-right md:hidden lg:block">
-                  <h6>Supply</h6>
+                  <h6 className="text-Soft_White">Supply</h6>
                 </th>
                 <th className="p-5 text-right ">
-                  <h6>Action</h6>
+                  <h6 className="text-Soft_White">Action</h6>
                 </th>
               </tr>
             </thead>
             <tbody>
               {marketData.map((coin, index) => (
-                <tr key={index} className="border-b border-gray-300">
-                  <td className="p-5 flex items-center gap-2">
-                    {coin.rank}{" "}
-                    <img className="px-2" src={coin.icon} alt={coin.name} />{" "}
-                    <span className="font-bold lg:block md:hidden">
-                      {coin.name}
-                    </span>{" "}
-                    <span className="text-gray-500">{coin.symbol}</span>
+                <tr key={index} className="border-b  border-gray-300">
+                  <td className="p-5">
+                    <div className="flex gap-2 items-center">
+                      <p className="text-[14px] ">{coin.rank}</p>
+                      <span className="font-bold px-1 lg:block md:hidden text-Soft_White ">
+                        <i>
+                          {" "}
+                          <svg
+                            className=" text-black dark:text-Soft_White hover:dark:text-Gold hover:text-Gold hover-bg-Gold "
+                            xmlns="http://www.w3.org/2000/svg"
+                            height="18px"
+                            viewBox="0 -960 960 960"
+                            width="18px"
+                            fill="currentColor"
+                          >
+                            <path d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z" />
+                          </svg>
+                        </i>
+                      </span>
+                      <img
+                        className="h-[24px] w-[24px]"
+                        src={coin.icon}
+                        alt={coin.name}
+                      />{" "}
+                      <span className="font-bold lg:block md:hidden">
+                        <p className="text-[14px] font-bold">{coin.name}</p>
+                      </span>{" "}
+                      <span className="text-gray-500 text-[14px] font-normal">
+                        {coin.symbol}
+                      </span>
+                    </div>
                   </td>
-                  <td className="p-5 text-right">{coin.price}</td>
-                  <td className="p-5 text-right">
+                  <td className="p-5 text-right text-[14px] font-normal">
+                    {coin.price}
+                  </td>
+                  <td className="p-5 flex justify-end items-center text-right">
                     <img className="text-right" src={graph} alt="graph" />
                   </td>
                   <td
-                    className={`p-2 text-right ${
+                    className={`p-2 text-right text-[14px] ${
                       coin.change.startsWith("+")
                         ? "text-green-500"
                         : "text-red-500"
@@ -150,13 +176,18 @@ export const ExploreMarket = () => {
                   >
                     {coin.change}
                   </td>
-                  <td className="p-5 text-right">{coin.marketCap}</td>
-                  <td className="p-5 text-right md:hidden lg:block">
-                    {coin.supply}
+                  <td className="p-5 text-right text-[14px]">
+                    {coin.marketCap}
+                  </td>
+                  <td className="p-5 text-right hide-on-md text-[14px]">
+                    <p className="text-[14px]"> {coin.supply}</p>
                   </td>
                   <td className="p-2 text-right   ">
-                    <div className="flex items-center gap-2">
-                      <Link to={"/signup"} className="bg-gray-800 px-4 py-2 border-[1px] bg-white rounded-[8px] text-[14px] dark:bg-black">
+                    <div className="flex items-center justify-end gap-2">
+                      <Link
+                        to={"/signup"}
+                        className="bg-gray-800 px-4 py-2 border-[1px] bg-white rounded-[8px] text-[14px] dark:bg-black"
+                      >
                         Trade
                       </Link>
                       <div className="hidden md:hidden lg:block">
