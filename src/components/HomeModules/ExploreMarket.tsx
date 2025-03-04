@@ -5,7 +5,6 @@ import xrp from "../../assets/Dummy_images/Xrp.svg";
 import litecoin from "../../assets/Dummy_images/Litecoin.svg";
 import Tether from "../../assets/Dummy_images/Tether.svg";
 import graph from "../../assets/cointpricegraph.png";
-import { HiDotsVertical } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import "../../App.css";
 const marketData = [
@@ -192,7 +191,7 @@ export const ExploreMarket = () => {
                       </Link>
                       <div className="hidden md:hidden lg:block">
                         <button className="">
-                          <HiDotsVertical />
+                        <svg xmlns="http://www.w3.org/2000/svg" height="22px" viewBox="0 -960 960 960" width="22px" fill="currentColor"><path d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z"/></svg>
                         </button>
                       </div>
                     </div>
