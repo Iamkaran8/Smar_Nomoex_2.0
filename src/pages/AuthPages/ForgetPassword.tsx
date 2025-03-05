@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { OtpValidation } from "../../components/Registration/PassWordReset/OtpValidation";
 import { PassWordResetForm } from "../../components/Registration/PassWordReset/PassWordResetForm";
 import { RegRightSideData } from "../../components/Registration/RegRightSideData";
@@ -8,15 +8,14 @@ import { RootState } from "../../redux/store";
 import { toast, ToastContainer } from "react-toastify";
 
 export const ForgetPassword = () => {
-  const isOptSent = useSelector((state:RootState)=> state.auth.isOptSend)
-  const sendEmail = ()=>{
-    toast("Email Send Succesfully")
-  }
-  
+  const isOptSent = useSelector((state: RootState) => state.auth.isOptSend);
+  const sendEmail = () => {
+    toast("Email Send Succesfully");
+  };
 
-  useEffect(()=>{
-    isOptSent && sendEmail() 
-  },[isOptSent])
+  useEffect(() => {
+    isOptSent && sendEmail();
+  }, [isOptSent]);
 
   return (
     <>
@@ -30,9 +29,10 @@ export const ForgetPassword = () => {
           <div className="md:w-[70%] lg:w-[50%] w-[50%] py-3 relative">
             <RegRightSideData />
           </div>
+          
         </div>
       </div>
-      <ToastContainer/>
+      <ToastContainer />
     </>
   );
 };

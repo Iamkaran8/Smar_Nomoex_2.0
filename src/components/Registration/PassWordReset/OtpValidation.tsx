@@ -1,14 +1,15 @@
 import OTPInput from "react-otp-input";
 import Nomoex_Logo from "../../../assets/Nomoex_Full_logo.svg";
 import { Link } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
 
 export const OtpValidation = () => {
-
-  const Email = useSelector((state:RootState)=>state.auth.forgetPasswordMail)
+  const Email = useSelector(
+    (state: RootState) => state.auth.forgetPasswordMail
+  );
   const [otp, setOtp] = useState("");
   const handleChange = (value: string) => {
     // Allow only numeric values

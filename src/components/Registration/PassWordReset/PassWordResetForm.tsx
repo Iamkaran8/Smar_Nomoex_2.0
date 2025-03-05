@@ -95,7 +95,6 @@ export const PassWordResetForm = () => {
               Back to Login
             </Link>
           </div>
-
           <ToastContainer />
         </div>
       </div>

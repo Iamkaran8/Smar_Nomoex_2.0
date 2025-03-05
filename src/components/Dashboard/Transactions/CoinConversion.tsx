@@ -1,18 +1,20 @@
 import { useState } from "react";
-import "../../../App.css";
+// import Select, { selectClasses } from "@mui/joy/Select";
+// import Option from "@mui/joy/Option";
+// import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 export const CoinConversion = () => {
-  const coinsName = [
+  const selectCoinSymbol = [
     {
-      id: 1,
-      Currency: "USD",
+      value: "USD",
+      label: "USD",
     },
     {
-      id: 2,
-      Currency: "INR",
+      value: "INR",
+      label: "INR",
     },
     {
-      id: 2,
-      Currency: "USDT",
+      value: "EUR",
+      label: "EUR",
     },
   ];
 
@@ -20,6 +22,10 @@ export const CoinConversion = () => {
   const handleClick = () => {
     setOpen(!isOpen);
   };
+  const handleChange = (value: string) => {
+    console.log(`selected ${value}`);
+  };
+
   return (
     <>
       <div
@@ -42,10 +48,10 @@ export const CoinConversion = () => {
           className="flex flex-col h-[100px] overflow-y-scroll absolute border-[1px] mt-1 rounded-[6px]  border-Soft_Gray_20 justify-evenly items-center w-[43%]   rounded-b-[6px] "
           onClick={handleClick}
         >
-          {coinsName.map((data) => (
+          {selectCoinSymbol.map((data) => (
             <div className="flex  flex-col rounded-[5px] p-1  items-start w-[100%] h-full  hover:bg-Soft_Gray_20 ease-in duration-300">
               <div className="flex ">
-                <h4 className="font-normal pl-3">{data.Currency}</h4>
+                <h4 className="font-normal pl-3">{data.label}</h4>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   height="24px"
@@ -61,6 +67,39 @@ export const CoinConversion = () => {
           ))}
         </div>
       )}
+
+      {/* 
+      <Select
+        defaultValue="USD"
+        indicator={<KeyboardArrowDown />}
+        sx={{
+          width: 240,
+          [`& .${selectClasses.indicator}`]: {
+            transition: "0.2s",
+            [`&.${selectClasses.expanded}`]: {
+              transform: "rotate(-180deg)",
+            },
+          },
+          height: "100%",
+          background: "black",
+          border: "1px solid rgba(207, 219, 213, 0.2)",
+          color: "white",
+          "&:hover": {
+            background: "rgba(207, 219, 213, 0.2)",
+          },
+        }}
+      >
+        <div className="bg-black">
+          {selectCoinSymbol.map((option) => (
+            <Option
+              sx={{}}
+              value={option.value}
+            >
+              {option.label}
+            </Option>
+          ))}
+        </div>
+      </Select> */}
     </>
   );
 };
