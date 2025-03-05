@@ -12,15 +12,16 @@ export const NewsletterPlain = () => {
     )
 }
 
+
+
 export const Newsletter = () => {
     return (
         <form className="handlesubscribe">
             <TextField
-                id="outlined-basic"
+                id="outlined-basic newsletter"
                 label="Enter your Email"
                 variant="outlined"
                 sx={{ width: 300 }}
-                inputProps={{ style: { height: 20 } }}
             />        
         </form>
     )

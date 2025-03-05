@@ -24,7 +24,7 @@ export const MainFooter = () => {
                 The world’s first marketplace for collectibles and non-fungible
                 tokens NFTs
               </p>
-              {isMobile ? <ThemeBtn /> : <Newsletter/>}
+              {isMobile ? <ThemeBtn /> : <NewsletterPlain/>}
             </div>
             {/* socials */}
             <div>

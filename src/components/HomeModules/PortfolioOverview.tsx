@@ -51,7 +51,7 @@ export const PortfolioOverview = () => {
                 <h2>Create your cryptocurrency portfolio today</h2>
                 <p className="lg:pr-24">Our trading app has a variety of features that make it the best place to start trading.</p>
 
-                {features.map((item, index) => (<>
+                {features.map((item, index) => (
                     <div key={index} className="flex items-center gap-5 my-5 py-5 md:py-0 md:px-0 px-3 dark:bg-[#0e0e0e] dark:md:bg-transparent shadow rounded-lg md:shadow-none group flex-col md:flex-row" onMouseEnter={() => setHoveredIndex(index)} onMouseLeave={() => setHoveredIndex(null)} >
                         {/* Circular Icon Container */}
                         <div className="w-16 h-16 aspect-square rounded-full flex items-center justify-center shadow group-hover:bg-[#0052FF] dark:bg-[#EBF0F01A] transition-all duration-300">
@@ -62,7 +62,6 @@ export const PortfolioOverview = () => {
                             <p className="lg:pr-24">{item.description}</p>
                         </div>
                     </div>
-                </>
                 ))}
             </div>
         </div>
