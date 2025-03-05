@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { Socials } from "../Utilities/Socials";
-import { NewsletterPlain } from "./NewsletterVariants";
+import { Newsletter, NewsletterPlain } from "./NewsletterVariants";
 import { RootState } from "../../redux/store";
 import { Footerurls } from "../Utilities/Urls";
 import { Link } from "react-router-dom";
@@ -24,7 +24,7 @@ export const MainFooter = () => {
                 The world’s first marketplace for collectibles and non-fungible
                 tokens NFTs
               </p>
-              {isMobile ? <ThemeBtn /> : <NewsletterPlain />}
+              {isMobile ? <ThemeBtn /> : <NewsletterPlain/>}
             </div>
             {/* socials */}
             <div>
