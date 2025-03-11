@@ -8,6 +8,7 @@ import { Dashboard } from "../pages/Dashboard";
 import { Assets } from "../pages/Assets";
 import { Transactions } from "../pages/Transactions";
 import { Prices } from "../pages/Prices";
+import { Settings } from "../pages/Settings";
 
 export const Routing = () => {
   return (
@@ -21,6 +22,7 @@ export const Routing = () => {
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="assets" element={<Assets />} />
         <Route path="transactions" element={<Transactions />} />
+        <Route path="settings" element={<Settings />}></Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

@@ -23,7 +23,7 @@ export const DashboardLayout = ({ dynamic, title }: LayOutProps) => {
           <HeaderNav title={title} />
 
           {/* Content Wrapper - Pushes Footer Down */}
-          <div className="flex-grow">{dynamic}</div>
+          <div className="flex-grow px-[2%]">{dynamic}</div>
 
           {/* Sticky Footer */}
           <div className="mt-auto">
