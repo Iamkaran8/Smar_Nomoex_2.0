@@ -1,6 +1,5 @@
 import { CopyRight } from "../components/Common/CopyRight";
 import { MobileHeader } from "../components/Common/DashFooter";
-
 import { SideNavbar } from "../components/Common/DashSidebar";
 import { Header } from "../components/Settings/Header";
 import { Profile } from "../components/Settings/Profile/Profile";
@@ -11,6 +10,7 @@ export const Settings = () => {
     <>
       <div className="bg-white  dark:bg-black text-black dark:text-white flex flex-col md:flex-row min-h-screen">
         {/* Side Navbar */}
+    
         <div className="w-[24%] hidden md:block xl:w-[250px] border-r-[1px] border-r-Soft_Gray dark:border-Soft_Gray_20">
           <SideNavbar />
         </div>

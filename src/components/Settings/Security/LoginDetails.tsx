@@ -7,6 +7,7 @@ export const LoginDetails = () => {
   return (
     <>
       <div className="p-4">
+        
         <div>
           <h2 className="text-[24px]">Login details</h2>
           <div className="bg-Cyan dark:bg-Light_Cyan_Gray p-5 rounded-[16px]  ">
