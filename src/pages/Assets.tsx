@@ -75,3 +75,6 @@ const CurrentPage = () => {
 export const Assets = () => {
   return <DashboardLayout dynamic={<CurrentPage />} title="Assets" />;
 };
+
+
+
