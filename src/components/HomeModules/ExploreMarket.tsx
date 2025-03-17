@@ -5,8 +5,10 @@ import xrp from "../../assets/Dummy_images/Xrp.svg";
 import litecoin from "../../assets/Dummy_images/Litecoin.svg";
 import Tether from "../../assets/Dummy_images/Tether.svg";
 import graph from "../../assets/cointpricegraph.png";
+
 import { Link } from "react-router-dom";
 import "../../App.css";
+import { useState } from "react";
 const marketData = [
   {
     rank: 1,
@@ -62,6 +64,7 @@ const marketData = [
 
 export const ExploreMarket = () => {
 
+  const  [loading , isLoading] = useState(false)
   const { isMobile } = useScreen(); // No need to pass breakpoints manually
 
   return (
@@ -209,9 +212,11 @@ export const ExploreMarket = () => {
               ))}
             </tbody>
           </table>
+          <Link to='/prices'>
           <button className="bg-blue-500 text-white py-3 px-7 rounded-md my-5 lg:my-10">
             Explore cryptocurrencies
           </button>
+          </Link>
         </div>
       )}
     </div>

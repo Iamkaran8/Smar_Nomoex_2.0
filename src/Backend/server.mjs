@@ -6,7 +6,7 @@ const app = express();
 const PORT = 5000;
 
 app.use(cors({
-    origin: "http://localhost:5173" // Allow frontend access
+    origin: "http://localhost:5000" // Allow frontend access
 }));
 app.use(express.json());
 
