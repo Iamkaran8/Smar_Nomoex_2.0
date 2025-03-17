@@ -1,25 +1,32 @@
+import { useState } from "react";
+import { NavButtons } from "../NavButtons";
 import { LoginDetails } from "./LoginDetails";
 import { SecurityCredentials } from "./SecurityCredentials";
 
 export const Security = () => {
+  const renderComponent = () => {
+    {
+      switch (currentNav) {
+        case "Profile":
+          return (
+            <>
+              <LoginDetails /> <SecurityCredentials />
+            </>
+          );
+        case "Security":
+          return <SecurityCredentials />;
+      }
+    }
+  };
+  const [currentNav, setCurrentNav] = useState<string>("Profile");
   return (
     <>
-      <div className="flex p-3 gap-1 flex-wrap border border-Soft_Gray w-fit rounded-lg">
-        <button className={`px-4 py-2 dark:hover:bg-Light_Cyan_Gray rounded-md transition font-semibold bg-transparent text-black dark:hover:text-white    text-white }`}>
-          Profile
-        </button>
-        <button className={`px-4 py-2 rounded-md transition font-semibold bg-transparent hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black bg-black dark:bg-white text-white dark:text-black"  }`}>
-          coin
-        </button>
-        <button className={`px-4 py-2 rounded-md transition font-semibold bg-transparent hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black bg-black dark:bg-white text-white dark:text-black"   }`} >
-          coin
-        </button>
-        <button className={`px-4 py-2 rounded-md transition font-semibold bg-transparent hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black bg-black dark:bg-white text-white dark:text-black"   }`}>
-          coin
-        </button>
-      </div>
-      <LoginDetails />
-      <SecurityCredentials />
+      {/* Navbar */}
+      <NavButtons currentNav={currentNav} setCurrentNav={setCurrentNav} />
+
+      {/* Based Out The Condition It Will Display Active Component */}
+      {renderComponent()}
+
       <div className="flex justify-between p-4">
         <button className="bg-Bright_Blue text-white px-5 rounded-[8px] text-[14px] leading-[21px] py-2 hidden md:block lg:block">
           Update Settings
