@@ -12,12 +12,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { CoindataError, CoindataLoading, Coinmarketdata, getCoinMarketdata } from "../../redux/apis/Coinmarket";
 import { useEffect } from "react";
 import { AppDispatch } from "../../redux/store";
-<<<<<<< HEAD
 import { Rate } from 'antd';
-
-=======
 import { Skeleton } from "./Skeleton";
->>>>>>> b43c6899f21736dd8ecf3e3bc5163e112839d5de
+
 
 const marketData = [
   {
@@ -84,7 +81,7 @@ export const ExploreMarket = () => {
   }, [])
 
   console.log(data)
-  
+
 
   const { isMobile } = useScreen(); // No need to pass breakpoints manually
 
@@ -95,7 +92,7 @@ export const ExploreMarket = () => {
       </h4>
       {isMobile ? (
         <div className="flex flex-col gap-2">
-          {marketData.map((coin, index) => (
+          {loading ? <Skeleton /> : <>{marketData.map((coin, index) => (
             <div
               key={index}
               className="py-4 px-3 rounded-lg flex justify-between items-center border border-gray-300 dark:border-Soft_Gray_20"
@@ -119,7 +116,8 @@ export const ExploreMarket = () => {
                 <h5 className="">{coin.price}</h5>
               </div>
             </div>
-          ))}
+          ))}</>}
+
         </div>
       ) : (
         <div className="border border-gray-300 rounded-lg ">
@@ -150,13 +148,13 @@ export const ExploreMarket = () => {
               </tr>
             </thead>
             <tbody>
-              {loading? <>loading</> : <>{marketData.map((coin, index) => (
+              {loading ? <Skeleton/> : <>{marketData.map((coin, index) => (
                 <tr key={index} className="border-b  border-gray-300">
                   <td className="p-5">
                     <div className="flex gap-2 items-center">
                       <p className="text-[14px] ">{coin.rank}</p>
                       <span className="font-bold px-1 lg:block md:hidden text-Soft_White ">
-                      <Rate count={1} className="custom-star"/>
+                        <Rate count={1} className="custom-star" />
                         {/* <i>
                           <svg
                             className=" text-black dark:text-Soft_White hover:dark:text-Gold hover:text-Gold hover-bg-Gold "
@@ -228,7 +226,6 @@ export const ExploreMarket = () => {
                   </td>
                 </tr>
               ))}</>}
-              
             </tbody>
           </table>
           <Link to='/prices'>
@@ -238,8 +235,6 @@ export const ExploreMarket = () => {
           </Link>
         </div>
       )}
-
-      <Skeleton/>
     </div>
   );
 };
