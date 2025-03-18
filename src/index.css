@@ -92,3 +92,13 @@ p{
     }
   }
 }
+
+
+
+.custom-star .ant-rate-star-full {
+  color: gold !important;  /* Change filled star color */
+}
+
+.custom-star .ant-rate-star-zero {
+  color: gray ! important /* Change empty star color */
+}

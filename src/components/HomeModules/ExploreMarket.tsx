@@ -12,6 +12,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { CoindataError, CoindataLoading, Coinmarketdata, getCoinMarketdata } from "../../redux/apis/Coinmarket";
 import { useEffect } from "react";
 import { AppDispatch } from "../../redux/store";
+import { Rate } from 'antd';
+
 
 const marketData = [
   {
@@ -97,7 +99,7 @@ export const ExploreMarket = () => {
               <div className="flex items-center gap-2">
                 <img src={coin.icon} alt={coin.name} />
                 <h3 className="font-semibold  ">
-                  {coin.name}{" "}
+                  {coin.name}
                   <span className="font-light text-[14px]">{coin.symbol}</span>
                 </h3>
               </div>
@@ -150,7 +152,8 @@ export const ExploreMarket = () => {
                     <div className="flex gap-2 items-center">
                       <p className="text-[14px] ">{coin.rank}</p>
                       <span className="font-bold px-1 lg:block md:hidden text-Soft_White ">
-                        <i>
+                      <Rate count={1} className="custom-star"/>
+                        {/* <i>
                           <svg
                             className=" text-black dark:text-Soft_White hover:dark:text-Gold hover:text-Gold hover-bg-Gold "
                             xmlns="http://www.w3.org/2000/svg"
@@ -161,7 +164,7 @@ export const ExploreMarket = () => {
                           >
                             <path d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z" />
                           </svg>
-                        </i>
+                        </i> */}
                       </span>
                       <img
                         className="h-[24px] w-[24px]"
