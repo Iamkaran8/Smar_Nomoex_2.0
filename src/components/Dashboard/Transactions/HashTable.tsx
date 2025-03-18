@@ -3,6 +3,7 @@ import { Pagination } from "../Pagination";
 import useScreen from "../../../customHooks/useScreen";
 import { useSelector } from "react-redux";
 import { selectTransactionData } from "../../../redux/slices/TransactionsSlice";
+import { Skeleton } from "./Skeleton";
 
 export const HashTable = () => {
 
@@ -18,33 +19,12 @@ export const HashTable = () => {
   const End = Start + 9;
   const FilteredTransDetails = transactionsDetails.slice(Start, End);
   const { isTablet, isMobile } = useScreen();
+  const loading = false;
   return (
     <>
       <div className={``}>
         {isTablet || isMobile ? (
           <>
-            {/* {
-            isTablet ? (
-              <div className="flex p-3 px-2">
-              <div className="w-[55%]">
-                <h3 className="text-[12px] font-bold">Hash</h3>
-              </div>
-              <div className="w-[10%]">
-                <h3 className="text-[12px] font-bold text-right">Time</h3>
-              </div>
-              <div className="w-[20%]">
-                <h3 className="text-[12px] font-bold text-right">
-                  Amount (BTC)
-                </h3>
-              </div>
-              <div className="w-[15%]">
-                <h3 className="text-[12px] font-bold text-right">
-                  Amount (USD)
-                </h3>
-              </div>
-            </div>
-            ) : null
-          } */}
             {FilteredTransDetails.map((hash) => (
               <div
                 key={hash.id} // Added key prop
@@ -83,58 +63,60 @@ export const HashTable = () => {
             ))}
           </>
         ) : (
-          <div className="cont">
-            <div className="flex p-3 px-2">
-              <div className="w-[55%]">
-                <h3 className="text-[12px] font-bold">Hash</h3>
-              </div>
-              <div className="w-[10%]">
-                <h3 className="text-[12px] font-bold text-right">Time</h3>
-              </div>
-              <div className="w-[20%]">
-                <h3 className="text-[12px] font-bold text-right">
-                  Amount (BTC)
-                </h3>
-              </div>
-              <div className="w-[15%]">
-                <h3 className="text-[12px] font-bold text-right">
-                  Amount (USD)
-                </h3>
-              </div>
-            </div>
-            {FilteredTransDetails.map((hash) => (
-              <div
-                key={hash.id} // Added key prop
-                className="flex p-3 border-[1px] border-Soft_Gray_20 rounded-[6px] mb-2 hover:bg-Soft_Gray_20 ease-in duration-300"
-              >
-                <div className="w-[55%] flex gap-3">
-                  <img
-                    className="h-[24px] w-[24px]"
-                    src={hash.image}
-                    alt={hash.btc_amount}
-                  />
-                  <p className="text-[14px] font-normal leading-[21px]">
-                    {hash.hash}
-                  </p>
-                </div>
-                <div className="w-[10%]">
-                  <p className="text-right text-Slate_Gray text-[14px] font-normal leading-[21px]">
-                    {hash.time}
-                  </p>
-                </div>
-                <div className="w-[20%]">
-                  <p className="text-right text-[14px] font-normal">
-                    {hash.btc_amount}
-                  </p>
-                </div>
-                <div className="w-[15%]">
-                  <p className="text-right text-[14px] font-bold">
-                    {hash.usd_amount}
-                  </p>
-                </div>
-              </div>
-            ))}
+    (
+      loading ? (<Skeleton/>) : (      <div className="cont">
+        <div className="flex p-3 px-2">
+          <div className="w-[55%]">
+            <h3 className="text-[12px] font-bold">Hash</h3>
           </div>
+          <div className="w-[10%]">
+            <h3 className="text-[12px] font-bold text-right">Time</h3>
+          </div>
+          <div className="w-[20%]">
+            <h3 className="text-[12px] font-bold text-right">
+              Amount (BTC)
+            </h3>
+          </div>
+          <div className="w-[15%]">
+            <h3 className="text-[12px] font-bold text-right">
+              Amount (USD)
+            </h3>
+          </div>
+        </div>
+        {FilteredTransDetails.map((hash) => (
+          <div
+            key={hash.id} // Added key prop
+            className="flex p-3 border-[1px] border-Soft_Gray_20 rounded-[6px] mb-2 hover:bg-Soft_Gray_20 ease-in duration-300"
+          >
+            <div className="w-[55%] flex gap-3">
+              <img
+                className="h-[24px] w-[24px]"
+                src={hash.image}
+                alt={hash.btc_amount}
+              />
+              <p className="text-[14px] font-normal leading-[21px]">
+                {hash.hash}
+              </p>
+            </div>
+            <div className="w-[10%]">
+              <p className="text-right text-Slate_Gray text-[14px] font-normal leading-[21px]">
+                {hash.time}
+              </p>
+            </div>
+            <div className="w-[20%]">
+              <p className="text-right text-[14px] font-normal">
+                {hash.btc_amount}
+              </p>
+            </div>
+            <div className="w-[15%]">
+              <p className="text-right text-[14px] font-bold">
+                {hash.usd_amount}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>)
+    )
         )}
         <div className="cont">
           <Pagination
