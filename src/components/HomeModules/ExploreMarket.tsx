@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { CoindataError, CoindataLoading, Coinmarketdata, getCoinMarketdata } from "../../redux/apis/Coinmarket";
 import { useEffect } from "react";
 import { AppDispatch } from "../../redux/store";
+import { Skeleton } from "./Skeleton";
 
 const marketData = [
   {
@@ -231,6 +232,8 @@ export const ExploreMarket = () => {
           </Link>
         </div>
       )}
+
+      <Skeleton/>
     </div>
   );
 };
