@@ -4,8 +4,8 @@ import authReducer  from "./slices/AuthSlice";
 import navlinksReducer from './slices/NavmenusSlice';
 import cryptoReducer from './slices/CryptoSlice'
 import transactionsReducer from "./slices/TransactionsSlice";
-import  AllCoinsReducer  from "./slices/AllCoinsSlice";
 
+import CoinmarketReducer from './apis/Coinmarket'
 
 export const store = configureStore({
     reducer:{
@@ -14,7 +14,7 @@ export const store = configureStore({
         navmenus: navlinksReducer,
         crypto: cryptoReducer,
         transaction : transactionsReducer,
-        allCoins : AllCoinsReducer
+        coinmarketcap: CoinmarketReducer,
     }
 })
 

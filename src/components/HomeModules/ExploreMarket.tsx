@@ -8,7 +8,11 @@ import graph from "../../assets/cointpricegraph.png";
 
 import { Link } from "react-router-dom";
 import "../../App.css";
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { CoindataError, CoindataLoading, Coinmarketdata, getCoinMarketdata } from "../../redux/apis/Coinmarket";
+import { useEffect } from "react";
+import { AppDispatch } from "../../redux/store";
+
 const marketData = [
   {
     rank: 1,
@@ -64,7 +68,17 @@ const marketData = [
 
 export const ExploreMarket = () => {
 
-  const  [loading , isLoading] = useState(false)
+  const data = useSelector(Coinmarketdata)
+  const loading = useSelector(CoindataLoading)
+  const error = useSelector(CoindataError)
+
+  const dispatch: AppDispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getCoinMarketdata())
+  }, [])
+
+  console.log(data)
+
   const { isMobile } = useScreen(); // No need to pass breakpoints manually
 
   return (
@@ -72,7 +86,6 @@ export const ExploreMarket = () => {
       <h4 className="text-lg font-bold mb-4">
         Explore the latest market updates
       </h4>
-
       {isMobile ? (
         <div className="flex flex-col gap-2">
           {marketData.map((coin, index) => (
@@ -89,11 +102,10 @@ export const ExploreMarket = () => {
               </div>
               <div className="flex gap-1">
                 <p
-                  className={`${
-                    coin.change.startsWith("+")
-                      ? "text-green-500"
-                      : "text-red-500"
-                  }`}
+                  className={`${coin.change.startsWith("+")
+                    ? "text-green-500"
+                    : "text-red-500"
+                    }`}
                 >
                   {coin.change}
                 </p>
@@ -131,14 +143,13 @@ export const ExploreMarket = () => {
               </tr>
             </thead>
             <tbody>
-              {marketData.map((coin, index) => (
+              {loading ? <>loading</> : <>{marketData.map((coin, index) => (
                 <tr key={index} className="border-b  border-gray-300">
                   <td className="p-5">
                     <div className="flex gap-2 items-center">
                       <p className="text-[14px] ">{coin.rank}</p>
                       <span className="font-bold px-1 lg:block md:hidden text-Soft_White ">
                         <i>
-                          {" "}
                           <svg
                             className=" text-black dark:text-Soft_White hover:dark:text-Gold hover:text-Gold hover-bg-Gold "
                             xmlns="http://www.w3.org/2000/svg"
@@ -155,10 +166,10 @@ export const ExploreMarket = () => {
                         className="h-[24px] w-[24px]"
                         src={coin.icon}
                         alt={coin.name}
-                      />{" "}
+                      />
                       <span className="font-bold lg:block md:hidden">
                         <p className="text-[14px] font-bold">{coin.name}</p>
-                      </span>{" "}
+                      </span>
                       <span className="text-gray-500 text-[14px] font-normal">
                         {coin.symbol}
                       </span>
@@ -171,11 +182,10 @@ export const ExploreMarket = () => {
                     <img className="text-right" src={graph} alt="graph" />
                   </td>
                   <td
-                    className={`p-2 text-right text-[14px] ${
-                      coin.change.startsWith("+")
-                        ? "text-green-500"
-                        : "text-red-500"
-                    }`}
+                    className={`p-2 text-right text-[14px] ${coin.change.startsWith("+")
+                      ? "text-green-500"
+                      : "text-red-500"
+                      }`}
                   >
                     {coin.change}
                   </td>
@@ -189,7 +199,7 @@ export const ExploreMarket = () => {
                     <div className="flex items-center justify-end gap-2">
                       <Link
                         to={"/signup"}
-                        className="bg-gray-800 px-4 py-2 border-[1px] bg-white rounded-[8px] text-[14px] dark:bg-black"
+                        className="px-4 py-2 border-[1px] bg-white rounded-[8px] text-[14px] dark:bg-black"
                       >
                         Trade
                       </Link>
@@ -209,13 +219,13 @@ export const ExploreMarket = () => {
                     </div>
                   </td>
                 </tr>
-              ))}
+              ))}</>}
             </tbody>
           </table>
           <Link to='/prices'>
-          <button className="bg-blue-500 text-white py-3 px-7 rounded-md my-5 lg:my-10">
-            Explore cryptocurrencies
-          </button>
+            <button className="bg-blue-500 text-white py-3 px-7 rounded-md my-5 lg:my-10">
+              Explore cryptocurrencies
+            </button>
           </Link>
         </div>
       )}
