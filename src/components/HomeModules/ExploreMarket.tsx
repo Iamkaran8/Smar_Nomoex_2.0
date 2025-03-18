@@ -78,6 +78,7 @@ export const ExploreMarket = () => {
   }, [])
 
   console.log(data)
+  
 
   const { isMobile } = useScreen(); // No need to pass breakpoints manually
 
@@ -143,7 +144,7 @@ export const ExploreMarket = () => {
               </tr>
             </thead>
             <tbody>
-              {loading ? <>loading</> : <>{marketData.map((coin, index) => (
+              {loading? <>loading</> : <>{marketData.map((coin, index) => (
                 <tr key={index} className="border-b  border-gray-300">
                   <td className="p-5">
                     <div className="flex gap-2 items-center">
@@ -220,6 +221,7 @@ export const ExploreMarket = () => {
                   </td>
                 </tr>
               ))}</>}
+              
             </tbody>
           </table>
           <Link to='/prices'>
