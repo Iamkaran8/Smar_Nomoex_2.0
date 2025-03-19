@@ -9,12 +9,16 @@ import graph from "../../assets/cointpricegraph.png";
 import { Link } from "react-router-dom";
 import "../../App.css";
 import { useDispatch, useSelector } from "react-redux";
-import { CoindataError, CoindataLoading, Coinmarketdata, getCoinMarketdata } from "../../redux/apis/Coinmarket";
+import {
+  CoindataError,
+  CoindataLoading,
+  Coinmarketdata,
+  getCoinMarketdata,
+} from "../../redux/apis/Coinmarket";
 import { useEffect } from "react";
 import { AppDispatch } from "../../redux/store";
-import { Rate } from 'antd';
+import { Rate } from "antd";
 import { Skeleton } from "./Skeleton";
-
 
 const marketData = [
   {
@@ -70,18 +74,16 @@ const marketData = [
 ];
 
 export const ExploreMarket = () => {
+  const data = useSelector(Coinmarketdata);
+  const loading = true;
+  const error = useSelector(CoindataError);
 
-  const data = useSelector(Coinmarketdata)
-  const loading = useSelector(CoindataLoading)
-  const error = useSelector(CoindataError)
-
-  const dispatch: AppDispatch = useDispatch()
+  const dispatch: AppDispatch = useDispatch();
   useEffect(() => {
-    dispatch(getCoinMarketdata())
-  }, [])
+    dispatch(getCoinMarketdata());
+  }, []);
 
-  console.log(data)
-
+  console.log(data);
 
   const { isMobile } = useScreen(); // No need to pass breakpoints manually
 
@@ -92,32 +94,40 @@ export const ExploreMarket = () => {
       </h4>
       {isMobile ? (
         <div className="flex flex-col gap-2">
-          {loading ? <Skeleton /> : <>{marketData.map((coin, index) => (
-            <div
-              key={index}
-              className="py-4 px-3 rounded-lg flex justify-between items-center border border-gray-300 dark:border-Soft_Gray_20"
-            >
-              <div className="flex items-center gap-2">
-                <img src={coin.icon} alt={coin.name} />
-                <h3 className="font-semibold  ">
-                  {coin.name}
-                  <span className="font-light text-[14px]">{coin.symbol}</span>
-                </h3>
-              </div>
-              <div className="flex gap-1">
-                <p
-                  className={`${coin.change.startsWith("+")
-                    ? "text-green-500"
-                    : "text-red-500"
-                    }`}
+          {loading ? (
+            <Skeleton />
+          ) : (
+            <>
+              {marketData.map((coin, index) => (
+                <div
+                  key={index}
+                  className="py-4 px-3 rounded-lg flex justify-between items-center border border-gray-300 dark:border-Soft_Gray_20"
                 >
-                  {coin.change}
-                </p>
-                <h5 className="">{coin.price}</h5>
-              </div>
-            </div>
-          ))}</>}
-
+                  <div className="flex items-center gap-2">
+                    <img src={coin.icon} alt={coin.name} />
+                    <h3 className="font-semibold  ">
+                      {coin.name}
+                      <span className="font-light text-[14px]">
+                        {coin.symbol}
+                      </span>
+                    </h3>
+                  </div>
+                  <div className="flex gap-1">
+                    <p
+                      className={`${
+                        coin.change.startsWith("+")
+                          ? "text-green-500"
+                          : "text-red-500"
+                      }`}
+                    >
+                      {coin.change}
+                    </p>
+                    <h5 className="">{coin.price}</h5>
+                  </div>
+                </div>
+              ))}
+            </>
+          )}
         </div>
       ) : (
         <div className="border border-gray-300 rounded-lg ">
@@ -147,88 +157,95 @@ export const ExploreMarket = () => {
                 </th>
               </tr>
             </thead>
-            <tbody>
-              {loading ? <Skeleton/> : <>{marketData.map((coin, index) => (
-                <tr key={index} className="border-b  border-gray-300">
-                  <td className="p-5">
-                    <div className="flex gap-2 items-center">
-                      <p className="text-[14px] ">{coin.rank}</p>
-                      <span className="font-bold px-1 lg:block md:hidden text-Soft_White ">
-                        <Rate count={1} className="custom-star" />
-                        {/* <i>
-                          <svg
-                            className=" text-black dark:text-Soft_White hover:dark:text-Gold hover:text-Gold hover-bg-Gold "
-                            xmlns="http://www.w3.org/2000/svg"
-                            height="18px"
-                            viewBox="0 -960 960 960"
-                            width="18px"
-                            fill="currentColor"
-                          >
-                            <path d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z" />
-                          </svg>
-                        </i> */}
-                      </span>
-                      <img
-                        className="h-[24px] w-[24px]"
-                        src={coin.icon}
-                        alt={coin.name}
-                      />
-                      <span className="font-bold lg:block md:hidden">
-                        <p className="text-[14px] font-bold">{coin.name}</p>
-                      </span>
-                      <span className="text-gray-500 text-[14px] font-normal">
-                        {coin.symbol}
-                      </span>
-                    </div>
-                  </td>
-                  <td className="p-5 text-right text-[14px] font-normal">
-                    {coin.price}
-                  </td>
-                  <td className="p-5 flex justify-end items-center text-right">
-                    <img className="text-right" src={graph} alt="graph" />
-                  </td>
-                  <td
-                    className={`p-2 text-right text-[14px] ${coin.change.startsWith("+")
-                      ? "text-green-500"
-                      : "text-red-500"
-                      }`}
-                  >
-                    {coin.change}
-                  </td>
-                  <td className="p-5 text-right text-[14px]">
-                    {coin.marketCap}
-                  </td>
-                  <td className="p-5 text-right hide-on-md text-[14px]">
-                    <p className="text-[14px]"> {coin.supply}</p>
-                  </td>
-                  <td className="p-2 text-right   ">
-                    <div className="flex items-center justify-end gap-2">
-                      <Link
-                        to={"/signup"}
-                        className="px-4 py-2 border-[1px] bg-white rounded-[8px] text-[14px] dark:bg-black"
+            {loading ? (
+              <Skeleton />
+            ) : (
+              <tbody>
+                <>
+                  {marketData.map((coin, index) => (
+                    <tr key={index} className="border-b  border-gray-300">
+                      <td className="p-5">
+                        <div className="flex gap-2 items-center">
+                          <p className="text-[14px] ">{coin.rank}</p>
+                          <span className="font-bold px-1 lg:block md:hidden text-Soft_White ">
+                            <Rate count={1} className="custom-star" />
+                            {/* <i>
+                        <svg
+                          className=" text-black dark:text-Soft_White hover:dark:text-Gold hover:text-Gold hover-bg-Gold "
+                          xmlns="http://www.w3.org/2000/svg"
+                          height="18px"
+                          viewBox="0 -960 960 960"
+                          width="18px"
+                          fill="currentColor"
+                        >
+                          <path d="m354-287 126-76 126 77-33-144 111-96-146-13-58-136-58 135-146 13 111 97-33 143ZM233-120l65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Zm247-350Z" />
+                        </svg>
+                      </i> */}
+                          </span>
+                          <img
+                            className="h-[24px] w-[24px]"
+                            src={coin.icon}
+                            alt={coin.name}
+                          />
+                          <span className="font-bold lg:block md:hidden">
+                            <p className="text-[14px] font-bold">{coin.name}</p>
+                          </span>
+                          <span className="text-gray-500 text-[14px] font-normal">
+                            {coin.symbol}
+                          </span>
+                        </div>
+                      </td>
+                      <td className="p-5 text-right text-[14px] font-normal">
+                        {coin.price}
+                      </td>
+                      <td className="p-5 flex justify-end items-center text-right">
+                        <img className="text-right" src={graph} alt="graph" />
+                      </td>
+                      <td
+                        className={`p-2 text-right text-[14px] ${
+                          coin.change.startsWith("+")
+                            ? "text-green-500"
+                            : "text-red-500"
+                        }`}
                       >
-                        Trade
-                      </Link>
-                      <div className="hidden md:hidden lg:block">
-                        <button className="">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            height="22px"
-                            viewBox="0 -960 960 960"
-                            width="22px"
-                            fill="currentColor"
+                        {coin.change}
+                      </td>
+                      <td className="p-5 text-right text-[14px]">
+                        {coin.marketCap}
+                      </td>
+                      <td className="p-5 text-right hide-on-md text-[14px]">
+                        <p className="text-[14px]"> {coin.supply}</p>
+                      </td>
+                      <td className="p-2 text-right   ">
+                        <div className="flex items-center justify-end gap-2">
+                          <Link
+                            to={"/signup"}
+                            className="px-4 py-2 border-[1px] bg-white rounded-[8px] text-[14px] dark:bg-black"
                           >
-                            <path d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z" />
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-              ))}</>}
-            </tbody>
+                            Trade
+                          </Link>
+                          <div className="hidden md:hidden lg:block">
+                            <button className="">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                height="22px"
+                                viewBox="0 -960 960 960"
+                                width="22px"
+                                fill="currentColor"
+                              >
+                                <path d="M480-160q-33 0-56.5-23.5T400-240q0-33 23.5-56.5T480-320q33 0 56.5 23.5T560-240q0 33-23.5 56.5T480-160Zm0-240q-33 0-56.5-23.5T400-480q0-33 23.5-56.5T480-560q33 0 56.5 23.5T560-480q0 33-23.5 56.5T480-400Zm0-240q-33 0-56.5-23.5T400-720q0-33 23.5-56.5T480-800q33 0 56.5 23.5T560-720q0 33-23.5 56.5T480-640Z" />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </>
+              </tbody>
+            )}
           </table>
-          <Link to='/prices'>
+          <Link to="/prices">
             <button className="bg-blue-500 text-white py-3 px-7 rounded-md my-5 lg:my-10">
               Explore cryptocurrencies
             </button>
