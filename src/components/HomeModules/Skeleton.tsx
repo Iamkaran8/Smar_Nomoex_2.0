@@ -90,9 +90,7 @@ export const Skeleton = () => {
                   <td className="p-5 flex justify-end items-center text-right">
                     {/* <img className="text-right" src={graph} alt="graph" /> */}
                   </td>
-                  <td
-                
-                  >
+                  <td>
                     <p className=" w-[150px]  text-transparent min-h-[21px] bg-Soft_Gray rounded-full animate-pulse ">
                       .
                     </p>
@@ -104,9 +102,8 @@ export const Skeleton = () => {
                         to={"/signup"}
                         className=" h-[100%] px-2 text-transparent bg-Soft_Gray rounded-full animate-pulse "
                       >
-                       trade
+                        trade
                       </Link>
-
                     </div>
                   </td>
                 </tr>

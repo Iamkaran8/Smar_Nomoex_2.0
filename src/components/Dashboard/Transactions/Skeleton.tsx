@@ -19,7 +19,7 @@ export const Skeleton = () => {
         {[1, 2, 3, 4, 5, 6, 7].map((hash) => (
           <div
             key={hash} // Added key prop
-            className="flex p-3 border-[1px] bg-Soft_Gray_20  dark:bg-transparent  border-Soft_Gray_20 rounded-[6px] mb-2 hover:bg-Soft_Gray_20 ease-in duration-300 animate-pulse"
+            className="flex p-3   "
           >
             <div className="w-[55%] flex gap-3">
               <span className="min-h-[25px] w-[28px] bg-Soft_Gray rounded-full animate-pulse"></span>

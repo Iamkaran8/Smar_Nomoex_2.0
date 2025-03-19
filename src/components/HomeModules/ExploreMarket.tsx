@@ -90,7 +90,7 @@ export const ExploreMarket = () => {
       <h4 className="text-lg font-bold mb-4">
         Explore the latest market updates
       </h4>
-      {isMobile ? (
+      {loading ? <Skeleton /> : <>{isMobile ? (
         <div className="flex flex-col gap-2">
           {loading ? <Skeleton /> : <>{marketData.map((coin, index) => (
             <div
@@ -148,7 +148,7 @@ export const ExploreMarket = () => {
               </tr>
             </thead>
             <tbody>
-              {loading ? <Skeleton/> : <>{marketData.map((coin, index) => (
+              {marketData.map((coin, index) => (
                 <tr key={index} className="border-b  border-gray-300">
                   <td className="p-5">
                     <div className="flex gap-2 items-center">
@@ -225,7 +225,7 @@ export const ExploreMarket = () => {
                     </div>
                   </td>
                 </tr>
-              ))}</>}
+              ))}
             </tbody>
           </table>
           <Link to='/prices'>
@@ -234,7 +234,8 @@ export const ExploreMarket = () => {
             </button>
           </Link>
         </div>
-      )}
+      )}</>}
+
     </div>
   );
 };
