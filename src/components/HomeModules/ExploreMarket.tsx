@@ -153,7 +153,7 @@ export const ExploreMarket = () => {
                   <td className="p-5">
                     <div className="flex gap-2 items-center">
                       <p className="text-[14px] ">{coin.rank}</p>
-                      <span className="font-bold px-1 lg:block md:hidden text-Soft_White ">
+                      <span className="font-bold px-1 lg:block md:hidden">
                         <Rate count={1} className="custom-star" />
                         {/* <i>
                           <svg
